@@ -1,1 +1,2 @@
+![Logo diNaiki](https://github.com/PAP-Kelompok-3/diNaiki/blob/main/image.jpg?raw=true)
 diNaiki adalah brand sekaligus platform e-commerce yang menghadirkan sepatu produksi sendiri dengan kualitas tinggi. Melalui website resminya, diNaiki menawarkan berbagai model sepatu bergaya modern yang dirancang untuk kenyamanan dan ketahanan dalam setiap langkah. Dengan mengutamakan desain yang stylish dan material pilihan, diNaiki hadir sebagai solusi praktis bagi masyarakat yang ingin tampil percaya diri dan aktif melalui produk lokal yang dapat diandalkan.
