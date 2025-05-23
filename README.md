@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/PAP-Kelompok-3/diNaiki">
-    <img src="assets/logo.png" alt="Logo">
+    <img src="src/img/logo.png" alt="Logo">
   </a>
 
 <h3 align="center">diNaiki</h3>
@@ -107,4 +107,4 @@ Kami sangat menghargai setiap masukan dan kontribusi untuk pengembangan proyek i
 [stars-url]: https://github.com/PAP-Kelompok-3/diNaiki/stargazers
 [issues-shield]: https://img.shields.io/github/issues/PAP-Kelompok-3/diNaiki.svg?style=for-the-badge
 [issues-url]: https://github.com/PAP-Kelompok-3/diNaiki/issues
-[product-screenshot]: assets/screenshot/home.png
+[product-screenshot]: src/img/screenshot/home.png
