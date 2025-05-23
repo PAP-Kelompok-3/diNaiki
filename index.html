@@ -1,27 +1,226 @@
-<html>
-<head>
-    <title>Home</title>
-    <link rel="stylesheet" type="text/css" href="assets/style.css">
-    <script src="assets/script.js"></script>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>diNaiki</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="src/css/styles.css" />
+  </head>
+  <body>
     <header>
-        <h1>Welcome to My Website</h1>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+      <button class="logo-button" disabled>LOGO</button>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">About Us</a>
+        <a href="#">Contact</a>
+      </nav>
+      <div class="header-icons" aria-label="Header icons">
+        <button aria-label="Search"><i class="fas fa-search"></i></button>
+        <button aria-label="Cart"><i class="fas fa-shopping-cart"></i></button>
+        <button aria-label="User Account"><i class="fas fa-user"></i></button>
+      </div>
     </header>
 
     <main>
-        <h2>Home Page</h2>
-        <p>This is the home page of my website.</p>
+      <h1 class="about-title">diNaiki in a good way.</h1>
+      <img
+        src="https://placehold.co/600x345/cccccc/969696.png?text=Hero+Image+Placeholder"
+        alt="Large rectangular placeholder image representing the hero section"
+        class="hero-image"
+      />
     </main>
 
+    <div class="marquee-container" aria-hidden="true">
+      <p class="marquee-text">
+        NEW ARRIVAL! NEW ARRIVAL! NEW ARRIVAL! NEW ARRIVAL! NEW ARRIVAL! NEW
+        ARRIVAL! NEW ARRIVAL! NEW ARRIVAL! NEW ARRIVAL! NEW ARRIVAL! NEW
+        ARRIVAL! NEW ARRIVAL! NEW ARRIVAL! NEW ARRIVAL! NEW ARRIVAL! NEW
+        ARRIVAL! NEW ARRIVAL! NEW ARRIVAL! NEW ARRIVAL! NEW ARRIVAL!
+      </p>
+    </div>
+
+    <section
+      class="new-arrival-section container"
+      aria-label="New Arrival Product"
+    >
+      <img
+        src="https://placehold.co/200x200/cccccc/969696.png?text=New+Arrival+Image"
+        alt="Square placeholder image representing new arrival product"
+        class="new-arrival-image"
+      />
+      <div class="new-arrival-content">
+        <h2>diNaiki - LOREM IPSUM SIT AMET, CONSECTETUR...</h2>
+        <p class="price">Rp x.xxx.xxx,xx</p>
+        <p class="description">
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum."
+        </p>
+        <div>
+          <button class="btn-black" type="button">Add to cart</button>
+          <button class="btn-white" type="button">Buy it now</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee-container" aria-hidden="true">
+      <p class="marquee-text-reverse">
+        NEW ARRIVAL! NEW ARRIVAL! NEW ARRIVAL! NEW ARRIVAL! NEW ARRIVAL! NEW
+        ARRIVAL! NEW ARRIVAL! NEW ARRIVAL! NEW ARRIVAL! NEW ARRIVAL! NEW
+        ARRIVAL! NEW ARRIVAL! NEW ARRIVAL! NEW ARRIVAL! NEW ARRIVAL! NEW
+        ARRIVAL! NEW ARRIVAL! NEW ARRIVAL! NEW ARRIVAL! NEW ARRIVAL!
+      </p>
+    </div>
+
+    <section class="collection-section" aria-label="Our Collection">
+      <h3 class="collection-title">OUR COLLECTION</h3>
+      <img
+        src="https://placehold.co/600x300/cccccc/969696.png?text=Our+Collection+Image"
+        alt="Large rectangular placeholder image representing our collection"
+        class="collection-image"
+      />
+    </section>
+
+    <section class="sneakers-section" aria-label="Sneakers">
+      <h4 class="sneakers-title">SNEAKERS</h4>
+      <div class="sneakers-grid">
+        <div class="sneaker-item">
+          <img
+            src="https://placehold.co/150x120/cccccc/969696.png?text=diNaiki+Fire-Die+1"
+            alt="Square placeholder image representing sneaker diNaiki Fire-Die 1"
+            class="sneaker-image"
+          />
+          <p class="sneaker-name">diNaiki Fire-Die 1</p>
+          <p class="sneaker-price">Rp x.xxx.xxx,xx</p>
+        </div>
+        <div class="sneaker-item">
+          <img
+            src="https://placehold.co/150x120/cccccc/969696.png?text=diNaiki+Fire-Die+2"
+            alt="Square placeholder image representing sneaker diNaiki Fire-Die 2"
+            class="sneaker-image"
+          />
+          <p class="sneaker-name">diNaiki Fire-Die 2</p>
+          <p class="sneaker-price">Rp x.xxx.xxx,xx</p>
+        </div>
+        <div class="sneaker-item">
+          <img
+            src="https://placehold.co/150x120/cccccc/969696.png?text=diNaiki+Fire-Die+3"
+            alt="Square placeholder image representing sneaker diNaiki Fire-Die 3"
+            class="sneaker-image"
+          />
+          <p class="sneaker-name">diNaiki Fire-Die 3</p>
+          <p class="sneaker-price">Rp x.xxx.xxx,xx</p>
+        </div>
+        <div class="sneaker-item">
+          <img
+            src="https://placehold.co/150x120/cccccc/969696.png?text=diNaiki+Fire-Die+4"
+            alt="Square placeholder image representing sneaker diNaiki Fire-Die 4"
+            class="sneaker-image"
+          />
+          <p class="sneaker-name">diNaiki Fire-Die 4</p>
+          <p class="sneaker-price">Rp x.xxx.xxx,xx</p>
+        </div>
+        <div class="sneaker-item">
+          <img
+            src="https://placehold.co/150x120/cccccc/969696.png?text=diNaiki+Fire-Die+5"
+            alt="Square placeholder image representing sneaker diNaiki Fire-Die 5"
+            class="sneaker-image"
+          />
+          <p class="sneaker-name">diNaiki Fire-Die 5</p>
+          <p class="sneaker-price">Rp x.xxx.xxx,xx</p>
+        </div>
+        <div class="sneaker-item">
+          <img
+            src="https://placehold.co/150x120/cccccc/969696.png?text=diNaiki+Fire-Die+6"
+            alt="Square placeholder image representing sneaker diNaiki Fire-Die 6"
+            class="sneaker-image"
+          />
+          <p class="sneaker-name">diNaiki Fire-Die 6</p>
+          <p class="sneaker-price">Rp x.xxx.xxx,xx</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="large-text-section">
+      <h1>Lorem Ipsum Dolor sit Amet</h1>
+      <p>
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum."
+      </p>
+    </section>
+
     <footer>
-        <p>&copy; 2023 My Website</p>
+      <div class="footer-logo-section">
+        <button class="footer-logo-button" aria-label="Logo">LOGO</button>
+        <p>
+          A modern, durable, and comfortable footwear brand designed for those
+          ready to go further.
+        </p>
+        <p class="flex-row">
+          <i class="fas fa-map-marker-alt" aria-hidden="true"></i> Sukun Malang,
+          Indonesia
+        </p>
+        <p class="flex-row">
+          <i class="fas fa-phone-alt" aria-hidden="true"></i> +62 812-345-678-90
+        </p>
+        <p>www.dinaiki.co.id</p>
+      </div>
+
+      <div>
+        <h5>Menu</h5>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Categories</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Terms &amp; Policy</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5>Account</h5>
+        <ul>
+          <li><a href="#">My Account</a></li>
+          <li><a href="#">Checkout</a></li>
+          <li><a href="#">My Cart</a></li>
+          <li><a href="#">My catalog</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5>Stay Connected</h5>
+        <ul>
+          <li><a href="#">Tiktok</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Twitter</a></li>
+        </ul>
+      </div>
+
+      <div class="stay-updated">
+        <h5>Stay Updated</h5>
+        <form>
+          <input
+            type="email"
+            placeholder="Enter your email"
+            aria-label="Enter your email"
+          />
+          <button type="submit" aria-label="Submit email">
+            <i class="fas fa-paper-plane" aria-hidden="true"></i>
+          </button>
+        </form>
+      </div>
     </footer>
+  </body>
 </html>
