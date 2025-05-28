@@ -42,15 +42,16 @@ header {
   border-bottom: 1px solid #000;
 }
 
-.logo-button {
-  background-color: #d1d5db;
-  color: #9ca3af;
-  font-weight: 700;
-  border-radius: 6px;
-  padding: 8px 24px;
-  user-select: none;
-  cursor: default;
-  font-size: 12px;
+.logo-link {
+  display: block;
+  max-height: 50px;
+}
+
+.logo-img {
+  height: 50px;
+  max-width: 500px;
+  width: auto;
+  display: block;
 }
 
 nav {
