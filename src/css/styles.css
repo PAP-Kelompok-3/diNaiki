@@ -301,108 +301,6 @@ h1.about-title {
   max-width: 600px
 }
 
-footer {
-  border-top: 1px solid #e5e7eb;
-  padding: 40px 24px 64px;
-  max-width: 1280px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 32px;
-  font-size: 12px;
-  color: #6b7280
-}
-
-footer .footer-logo-section {
-  max-width: 176px
-}
-
-footer .footer-logo-button {
-  background-color: #d1d5db;
-  color: #9ca3af;
-  font-weight: 700;
-  border-radius: 6px;
-  padding: 4px 24px;
-  user-select: none;
-  cursor: default;
-  font-size: 12px;
-  margin-bottom: 8px;
-  display: inline-block
-}
-
-footer .footer-logo-section p {
-  line-height: 1.3;
-  margin: 4px 0
-}
-
-footer h5 {
-  font-weight: 700;
-  color: #000;
-  margin-bottom: 12px
-}
-
-footer ul {
-  list-style: none;
-  padding: 0;
-  margin: 0
-}
-
-footer ul li {
-  margin-bottom: 8px
-}
-
-footer ul li a {
-  color: #4b5563;
-  font-weight: 400;
-  font-size: 12px
-}
-
-footer ul li a:hover {
-  text-decoration: underline
-}
-
-footer .stay-updated form {
-  display: flex
-}
-
-footer .stay-updated input[type=email] {
-  flex-grow: 1;
-  padding: 6px 8px;
-  font-size: 12px;
-  border: 1px solid #d1d5db;
-  border-right: none;
-  border-radius: 4px 0 0 4px;
-  outline: 0
-}
-
-footer .stay-updated input[type=email]:focus {
-  border-color: #9ca3af;
-  box-shadow: 0 0 0 1px #9ca3af
-}
-
-footer .stay-updated button {
-  background-color: #9ca3af;
-  border-radius: 0 4px 4px 0;
-  border: none;
-  padding: 6px 12px;
-  color: #fff;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px
-}
-
-footer .stay-updated button i {
-  pointer-events: none
-}
-
-@media (min-width:640px) {
-  footer {
-    grid-template-columns: repeat(5, 1fr)
-  }
-}
-
 @media (max-width:480px) {
   header {
     flex-wrap: wrap;
@@ -564,25 +462,29 @@ nav a:hover {
   background-color: #f3f4f6
 }
 
+/* Footer */
 footer {
   max-width: 1120px;
   margin: 80px auto 40px;
   padding: 24px;
-  border-top: 1px solid #e5e7eb
+  border-top: 1px solid #e5e7eb;
 }
 
 .footer-grid {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  gap: 40px
+  gap: 40px;
 }
 
-@media (min-width:768px) {
+@media (min-width: 768px) {
+
+  /* This is your existing media query for footer */
   .footer-grid {
-    grid-template-columns: repeat(5, 1fr)
+    grid-template-columns: repeat(5, 1fr);
   }
 }
 
+/* This class was in your CSS but not in HTML, ensure it's used or remove if not needed */
 .footer-logo-button {
   background-color: #d1d5db;
   border: none;
@@ -594,7 +496,7 @@ footer {
   cursor: default;
   user-select: none;
   margin-bottom: 12px;
-  margin-top: 20px
+  margin-top: 20px;
 }
 
 .footer-description {
@@ -602,7 +504,7 @@ footer {
   color: #6b7280;
   line-height: 1.3;
   margin-bottom: 12px;
-  max-width: 240px
+  max-width: 240px;
 }
 
 .footer-contact {
@@ -611,51 +513,54 @@ footer {
   gap: 8px;
   font-size: 12px;
   color: #6b7280;
-  margin-bottom: 8px
+  margin-bottom: 8px;
 }
 
 .footer-contact i {
-  font-size: 12px
+  font-size: 12px;
 }
 
 .footer-website {
   font-size: 12px;
-  color: #6b7280
+  color: #6b7280;
 }
 
 .footer-section-title {
   font-weight: 700;
-  margin-bottom: 16px
+  margin-bottom: 16px;
+  /* Ensure the image inside title link in footer behaves as expected */
 }
 
 .footer-section-title img.logo-img {
-  height: 40px
+  height: 40px;
+  /* Example: Adjust footer logo size if needed */
 }
+
 
 .footer-list {
   list-style: none;
   padding: 0;
   margin: 0;
   font-size: 14px;
-  color: #6b7280
+  color: #6b7280;
 }
 
 .footer-list li {
-  margin-bottom: 8px
+  margin-bottom: 8px;
 }
 
 .footer-list a {
   color: #6b7280;
-  text-decoration: none
+  text-decoration: none;
 }
 
 .footer-list a:hover {
-  text-decoration: underline
+  text-decoration: underline;
 }
 
 .footer-form {
   display: flex;
-  max-width: 280px
+  max-width: 280px;
 }
 
 .footer-input {
@@ -666,119 +571,189 @@ footer {
   font-size: 14px;
   color: #4b5563;
   border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px
+  border-bottom-left-radius: 4px;
 }
 
 .footer-input::placeholder {
-  color: #9ca3af
+  color: #9ca3af;
 }
 
 .footer-input:focus {
-  outline: 0
+  outline: none;
 }
 
 .footer-submit {
   background-color: #6b7280;
   border: none;
   padding: 8px 12px;
-  color: #fff;
+  color: white;
   cursor: pointer;
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
-  font-size: 16px
+  font-size: 16px;
 }
 
 .footer-submit:hover {
-  background-color: #4b5563
+  background-color: #4b5563;
 }
 
-@media (max-width:992px) {
+/* Responsive Adjustments - NEW/MODIFIED */
+@media (max-width: 992px) {
+
+  /* Adjust breakpoint if necessary, e.g., for tablets */
+  main {
+    gap: 30px;
+    /* Slightly reduce gap for medium screens */
+  }
+
   .product-title {
-    font-size: 32px
+    font-size: 32px;
+    /* Slightly smaller title */
   }
 }
 
-@media (max-width:768px) {
+@media (max-width: 768px) {
+
+  /* For tablets and smaller mobiles */
   header {
     flex-direction: column;
+    /* Stack header items */
     align-items: flex-start;
-    gap: 15px
+    /* Align to start */
+    gap: 15px;
+    /* Adjust gap for stacked header */
   }
 
   nav {
     gap: 20px;
+    /* Reduce gap in nav if it stays visible or becomes a hamburger */
     flex-wrap: wrap;
-    justify-content: flex-start
+    /* Allow nav items to wrap */
+    justify-content: flex-start;
+    /* Align nav items to start when wrapped */
   }
 
   .header-icons {
     align-self: flex-start;
-    margin-top: 10px
+    /* Align icons to the start if header is stacked */
+    margin-top: 10px;
+    /* Add some space if nav wraps */
+  }
+
+  main {
+    grid-template-columns: 1fr;
+    /* Stack the two main sections vertically */
+    gap: 30px;
+    /* Adjust gap for stacked layout */
   }
 
   .main-image {
     max-width: 100%;
-    height: auto
+    /* Allow images to take full width of their column */
+    height: auto;
+    /* Adjust height automatically for responsiveness */
+  }
+
+  .thumbnails-container {
+    max-width: 100%;
+    /* Allow thumbnails container to take full width */
   }
 
   .product-title {
     font-size: 28px;
-    letter-spacing: .1em
+    /* Further reduce title size for mobile */
+    letter-spacing: 0.1em;
   }
 
   .price {
-    font-size: 18px
+    font-size: 18px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    /* Stack buttons vertically */
+    gap: 15px;
+    /* Adjust gap for stacked buttons */
+    max-width: 100%;
+    /* Allow button container to take full width */
   }
 
   .btn-add,
   .btn-buy {
     max-width: 100%;
-    flex-basis: auto
+    /* Allow buttons to take full width when stacked */
+    flex-basis: auto;
+    /* Reset flex-basis for stacked layout */
   }
 }
 
-@media (max-width:480px) {
+@media (max-width: 480px) {
+
+  /* For very small mobile screens */
   header {
-    padding: 16px
+    padding: 16px;
   }
 
   nav {
     font-size: 14px;
+    /* Smaller nav font */
     gap: 15px;
-    justify-content: center
+    justify-content: center;
+    /* Center nav items on very small screens if they fit */
   }
 
   .header-icons {
     justify-content: center;
-    width: 100%
+    /* Center icons on very small screens */
+    width: 100%;
   }
 
   .product-title {
-    font-size: 24px
+    font-size: 24px;
+    /* Even smaller title */
+  }
+
+  .thumbnails {
+    gap: 8px;
+    /* Reduce gap between thumbnails */
+    flex-wrap: wrap;
+    /* Allow thumbnails to wrap if needed */
+    justify-content: center;
+    /* Center thumbnails if they wrap */
+  }
+
+  .thumbnail {
+    width: 56px;
+    /* Slightly smaller thumbnails, adjust as needed */
+    height: 56px;
   }
 
   .btn-add,
   .btn-buy {
     font-size: 16px;
-    padding: 10px 20px
+    /* Smaller button text */
+    padding: 10px 20px;
   }
 
   .footer-grid {
-    gap: 30px
+    gap: 30px;
+    /* Reduce gap in footer for small screens */
   }
 
   .footer-section-title {
-    margin-bottom: 12px
+    margin-bottom: 12px;
   }
 
-  .footer-contact,
   .footer-description,
-  .footer-list,
-  .footer-website {
-    font-size: 11px
+  .footer-contact,
+  .footer-website,
+  .footer-list {
+    font-size: 11px;
+    /* Slightly smaller footer text */
   }
 
   .footer-form {
-    max-width: 100%
+    max-width: 100%;
+    /* Allow form to take full width */
   }
 }
