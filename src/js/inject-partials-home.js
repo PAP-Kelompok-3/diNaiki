@@ -7,5 +7,5 @@ function loadComponent(id, file) {
 }
 
 // Load header dan footer
-loadComponent("header-placeholder", "src/partials/header.html");
-loadComponent("footer-placeholder", "src/partials/footer.html");
+loadComponent("header-placeholder", "src/partials-home/header.html");
+loadComponent("footer-placeholder", "src/partials-home/footer.html");
