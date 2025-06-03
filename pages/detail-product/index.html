@@ -1,160 +1,147 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Product Page</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
-    <link href="style.css" rel="stylesheet" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>diNaiki - Detail Product</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
+  <link href="src/css/styles.css" rel="stylesheet" />
 </head>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const sizeBoxes = document.querySelectorAll(".size-box");
-        const hiddenInput = document.getElementById("selectedSize");
-
-        sizeBoxes.forEach(box => {
-            box.addEventListener("click", () => {
-                sizeBoxes.forEach(b => b.classList.remove("active"));
-                box.classList.add("active");
-                hiddenInput.value = box.dataset.size;
-            });
-        });
-    });
-</script>
-
-
 <body>
-    <header>
-        <a href="../../index.html" class="logo-link">
-            <img src="logo.png" alt="diNaiki Logo" class="logo-img" />
-        </a>
-        <nav>
-            <a href="/index.html">Home</a>
-            <a href="/pages/about">About Us</a>
-            <a href="/pages/contact">Contact</a>
-        </nav>
-        <div class="header-icons">
-            <button aria-label="Search"><i class="fas fa-search"></i></button>
-            <button aria-label="Cart"><i class="fas fa-shopping-cart"></i></button>
-            <button aria-label="User Account"><i class="fas fa-user"></i></button>
+  <header>
+    <a href="/index.html" class="logo-link">
+      <img src="/src/img/primaryLogo.svg" alt="diNaiki Logo" class="logo-img" />
+    </a>
+    <nav>
+      <a href="/index.html">Home</a>
+      <a href="/pages/about">About Us</a>
+      <a href="/pages/contact">Contact</a>
+    </nav>
+    <div class="header-icons">
+      <button aria-label="Search"><i class="fas fa-search"></i></button>
+      <button aria-label="Cart"><i class="fas fa-shopping-cart"></i></button>
+      <button aria-label="User Account"><i class="fas fa-user"></i></button>
+    </div>
+  </header>
+  <main>
+    <section>
+      <img src="/src/img/detail-product-0.svg"
+        alt="Large placeholder image of product diNaiki Fire-Die 1, light gray background" class="main-image"
+        width="480" height="400" />
+      <div class="thumbnails-container" aria-label="Product image thumbnails with navigation arrows">
+        <button class="thumb-arrow" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+        <div class="thumbnails">
+          <img src="/src/img/detail-product-1.svg"
+            alt="Thumbnail placeholder image 1 for product diNaiki Fire-Die 1, light gray background" class="thumbnail"
+            width="64" height="64" />
+          <img src="/src/img/detail-product-2.svg"
+            alt="Thumbnail placeholder image 2 for product diNaiki Fire-Die 1, light gray background" class="thumbnail"
+            width="64" height="64" />
+          <img src="/src/img/detail-product-3.svg"
+            alt="Thumbnail placeholder image 3 for product diNaiki Fire-Die 1, light gray background" class="thumbnail"
+            width="64" height="64" />
+          <img src="/src/img/detail-product-4.svg"
+            alt="Thumbnail placeholder image 4 for product diNaiki Fire-Die 1, light gray background" class="thumbnail"
+            width="64" height="64" />
+          <img src="/src/img/detail-product-5.svg"
+            alt="Thumbnail placeholder image 5 for product diNaiki Fire-Die 1, light gray background" class="thumbnail"
+            width="64" height="64" />
         </div>
-    </header>
-    <main>
-        <section>
-            <img src="air force 1 black.jpg"
-                alt="Large placeholder image of product diNaiki Fire-Die 1, light gray background" class="main-image"
-                width="480" height="400" />
-            <div class="thumbnails-container" aria-label="Product image thumbnails with navigation arrows">
-                <button class="thumb-arrow" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
-                <div class="thumbnails">
-                    <img src="air force 1 black.jpg"
-                        alt="Thumbnail placeholder image 1 for product diNaiki Fire-Die 1, light gray background"
-                        class="thumbnail" width="64" height="64" />
-                    <img src="air force 1 black.jpg"
-                        alt="Thumbnail placeholder image 2 for product diNaiki Fire-Die 1, light gray background"
-                        class="thumbnail" width="64" height="64" />
-                    <img src="air force 1 black.jpg"
-                        alt="Thumbnail placeholder image 3 for product diNaiki Fire-Die 1, light gray background"
-                        class="thumbnail" width="64" height="64" />
-                    <img src="air force 1 black.jpg"
-                        alt="Thumbnail placeholder image 4 for product diNaiki Fire-Die 1, light gray background"
-                        class="thumbnail" width="64" height="64" />
-                    <img src="air force 1 black.jpg"
-                        alt="Thumbnail placeholder image 5 for product diNaiki Fire-Die 1, light gray background"
-                        class="thumbnail" width="64" height="64" />
-                </div>
-                <button class="thumb-arrow" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
-            </div>
-        </section>
-        <section>
-            <h1 class="product-title">diNaiki Fire-Die 1</h1>
-            <div class="price-and-rating">
-                <p class="price">Rp 1.500.000,00</p>
+        <button class="thumb-arrow" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </section>
+    <section>
+      <h1 class="product-title">diNaiki Fire-Die 1</h1>
+      <div class="price-and-rating">
+        <p class="price">Rp 1.500.000,00</p>
 
-                <div class="rating">
-                    <span>1234 sold</span>
-                    <span>·</span>
-                    <span>4,9</span>
-                    <i class="fas fa-star"></i>
-                </div>
-            </div>
-            <hr />
-            <div>
-                <h2 class="section-title">Description</h2>
-                <p class="description">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                    minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Duis aute irure dolor in
-                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                    culpa qui officia deserunt mollit anim id est laborum."</p>
-            </div>
-            <div>
-                <h3 class="section-title">Size</h3>
-                <div class="sizes">
-                    <div class="size-box" data-size="46">46</div>
-                    <div class="size-box" data-size="47">47</div>
-                    <div class="size-box" data-size="48">48</div>
-                    <div class="size-box" data-size="49">49</div>
-                </div>
-                <input type="hidden" id="selectedSize" name="size" />
-            </div>
-            <div class="buttons">
-                <button class="btn-add" type="button">Add to cart</button>
-                <button class="btn-buy" type="button">Buy it now</button>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <div class="footer-grid">
-            <div>
-                <button class="footer-logo-button" disabled>LOGO</button>
-                <p class="footer-description">A modern, durable, and comfortable footwear brand designed for those
-                    ready to go further.</p>
-                <div class="footer-contact"><i class="fas fa-map-marker-alt"></i><span>Sukun Malang, Indonesia</span>
-                </div>
-                <div class="footer-contact"><i class="fas fa-phone"></i><span>+62 812-345-678-90</span></div>
-                <p class="footer-website">www.dinaiki.co.id</p>
-            </div>
-            <div>
-                <h4 class="footer-section-title">Menu</h4>
-                <ul class="footer-list">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Categories</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">Terms &amp; Policy</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="footer-section-title">Account</h4>
-                <ul class="footer-list">
-                    <li><a href="#">My Account</a></li>
-                    <li><a href="#">Checkout</a></li>
-                    <li><a href="#">My Cart</a></li>
-                    <li><a href="#">My catalog</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="footer-section-title">Stay Connected</h4>
-                <ul class="footer-list">
-                    <li><a href="#">Tiktok</a></li>
-                    <li><a href="#">Instagram</a></li>
-                    <li><a href="#">Twitter</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="footer-section-title">Stay Updated</h4>
-                <form class="footer-form" onsubmit="event.preventDefault()">
-                    <input type="email" placeholder="Enter your email" required class="footer-input" />
-                    <button type="submit" aria-label="Submit email" class="footer-submit"><i
-                            class="fas fa-paper-plane"></i></button>
-                </form>
-            </div>
+        <div class="rating">
+          <span>1234 sold</span>
+          <span>·</span>
+          <span>4,9</span>
+          <i class="fas fa-star"></i>
         </div>
-    </footer>
+      </div>
+      <hr />
+      <div>
+        <h2 class="section-title">Description</h2>
+        <p class="description">Hadapi setiap tantangan dan lampaui batas dengan diNaiki Fire-Die 1. Sepatu ini
+          dirancang khusus bagi Anda yang berjiwa petualang dan tak kenal lelah. Menggabungkan desain modern yang
+          memukau dengan material premium, Fire-Die 1 menawarkan durabilitas superior dan kenyamanan tak tertandingi
+          untuk menemani setiap langkah Anda. Baik menjelajahi perkotaan maupun menaklukkan medan terjal, teknologi
+          sol inovatifnya memberikan cengkeraman optimal dan stabilitas, sementara bagian atas yang breathable menjaga
+          kaki tetap sejuk dan nyaman sepanjang hari. Bersiaplah untuk melangkah lebih jauh dengan diNaiki Fire-Die 1.
+        </p>
+      </div>
+      <div>
+        <h3 class="section-title">Size</h3>
+        <div class="sizes">
+          <div class="size-box" data-size="46">46</div>
+          <div class="size-box" data-size="47">47</div>
+          <div class="size-box" data-size="48">48</div>
+          <div class="size-box" data-size="49">49</div>
+        </div>
+        <input type="hidden" id="selectedSize" name="size" />
+      </div>
+      <div class="buttons">
+        <button class="btn-add" type="button">Add to cart</button>
+        <button class="btn-buy" type="button">Buy it now</button>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <a href="/index.html" class="footer-section-title">
+          <img src="/src/img/primaryLogo.svg" alt="diNaiki Logo" class="logo-img" />
+        </a>
+        <p class="footer-description">A modern, durable, and comfortable footwear brand designed for those
+          ready to go further.</p>
+        <div class="footer-contact"><i class="fas fa-map-marker-alt"></i><span>Sukun Malang, Indonesia</span>
+        </div>
+        <div class="footer-contact"><i class="fas fa-phone"></i><span>+62 812-345-678-90</span></div>
+        <p class="footer-website">www.dinaiki.co.id</p>
+      </div>
+      <div>
+        <h4 class="footer-section-title">Menu</h4>
+        <ul class="footer-list">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Categories</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Terms &amp; Policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-section-title">Account</h4>
+        <ul class="footer-list">
+          <li><a href="#">My Account</a></li>
+          <li><a href="#">Checkout</a></li>
+          <li><a href="#">My Cart</a></li>
+          <li><a href="#">My catalog</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-section-title">Stay Connected</h4>
+        <ul class="footer-list">
+          <li><a href="#">Tiktok</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Twitter</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-section-title">Stay Updated</h4>
+        <form class="footer-form" onsubmit="event.preventDefault()">
+          <input type="email" placeholder="Enter your email" required class="footer-input" />
+          <button type="submit" aria-label="Submit email" class="footer-submit"><i
+              class="fas fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </div>
+  </footer>
+  <script src="src/js/script.js"></script>
 </body>
 
 </html>
