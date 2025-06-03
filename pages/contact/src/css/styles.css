@@ -1,0 +1,140 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background: #fff;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 48px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+@media (min-width: 768px) {
+  main {
+    flex-direction: row;
+    gap: 80px;
+  }
+}
+
+.contact-info {
+  flex: 1;
+  max-width: 400px;
+}
+
+.contact-info h1 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  margin-bottom: 24px;
+  letter-spacing: 0.2em;
+}
+
+.contact-info p {
+  margin-bottom: 40px;
+  max-width: 320px;
+  line-height: 1.6;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 320px;
+}
+
+.contact-details .detail {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.contact-details .detail i {
+  font-size: 20px;
+}
+
+.contact-details .detail span {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.contact-form-section {
+  flex: 1;
+  max-width: 520px;
+  margin-top: 48px;
+}
+
+@media (min-width: 768px) {
+  .contact-form-section {
+    margin-top: 0;
+  }
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-row {
+  display: flex;
+  gap: 24px;
+}
+
+.form-col {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.form-col label {
+  margin-bottom: 4px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.form-col input,
+.form-col textarea {
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 16px;
+  color: #111827;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-col input:focus,
+.form-col textarea:focus {
+  border-color: #9ca3af;
+  box-shadow: 0 0 0 1px #9ca3af;
+}
+
+.form-col textarea {
+  resize: none;
+  min-height: 120px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.submit-btn {
+  background: #d1d5db;
+  color: #374151;
+  font-weight: 600;
+  border-radius: 6px;
+  padding: 8px 24px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.submit-btn:hover {
+  background: #9ca3af;
+}
