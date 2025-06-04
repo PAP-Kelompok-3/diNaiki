@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/PAP-Kelompok-3/diNaiki">
-    <img src="src/img/primaryLogo.svg" alt="Logo">
+    <img src="src/img/primaryLogo.svg" alt="Logo" style="background-color: white; padding: 15px; width: 250px">
   </a>
 
 <h3 align="center">diNaiki</h3>
