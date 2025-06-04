@@ -130,7 +130,8 @@ h1.about-title {
   border-radius: 6px;
   border: none;
   cursor: pointer;
-  margin-right: 12px
+  margin-right: 12px;
+  margin-bottom: 12px;
 }
 
 .btn-white {
@@ -194,6 +195,7 @@ h1.about-title {
 }
 
 .sneaker-image {
+  background-color: #E4E4E4;
   border-radius: 6px;
   width: 100%;
   aspect-ratio: 4/3;
@@ -202,12 +204,10 @@ h1.about-title {
 }
 
 .sneaker-name {
-  font-family: monospace, monospace;
   margin: 0 0 2px 0
 }
 
 .sneaker-price {
-  font-family: monospace, monospace;
   margin: 0
 }
 
