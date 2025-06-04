@@ -1,0 +1,91 @@
+const DATA_URL = 'https://pap-kelompok-3.github.io/cdn-diNaiki/data.json';
+
+async function init() {
+  loadComponent("header-placeholder", "src/partials-home/header.html");
+  loadComponent("footer-placeholder", "src/partials-home/footer.html");
+  try {
+    const res = await fetch(DATA_URL);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const sneakers = await res.json();
+
+    renderSneakers(sneakers.slice(0, 6));
+
+    if (sneakers.length >= 10) {
+      renderNewArrival(sneakers[9]);
+    }
+  } catch (err) {
+    console.error('Gagal memuat data.json:', err);
+  }
+}
+
+function loadComponent(id, file) {
+  fetch(file)
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById(id).innerHTML = data;
+    });
+}
+
+function renderNewArrival(item) {
+  const imgEl = document.getElementById('new-image');
+  const nameEl = document.getElementById('new-name');
+  const priceEl = document.getElementById('new-price');
+  const descEl = document.getElementById('new-desc');
+  const detailLink = document.getElementById('new-detail-link');
+  const addCartBtn = document.getElementById('new-addcart');
+
+  if (imgEl && item.images && item.images.length > 0) {
+    imgEl.src = item.images[1];
+    imgEl.alt = item.name;
+  }
+
+  if (nameEl) {
+    nameEl.textContent = item.name;
+  }
+
+  if (priceEl) {
+    priceEl.textContent = 'Rp ' + item.price.toLocaleString('id-ID') + ',00';
+  }
+
+  if (descEl) {
+    descEl.textContent = item.description;
+  }
+
+  if (detailLink) {
+    detailLink.href = `pages/detail-product.html?product=${encodeURIComponent(item.name)}`;
+  }
+
+  if (addCartBtn) {
+    addCartBtn.addEventListener('click', () => {
+      alert(`"${item.name}" telah ditambahkan ke keranjang!`);
+    });
+  }
+}
+
+function renderSneakers(arrSneakers) {
+  const container = document.getElementById('sneaker-container');
+  if (!container) return;
+  container.innerHTML = '';
+
+  arrSneakers.forEach(item => {
+    const card = document.createElement('div');
+    card.className = 'sneaker-item';
+
+    const thumbnail = (item.images && item.images.length > 0)
+      ? item.images[0]
+      : '';
+
+    const formattedPrice = item.price.toLocaleString('id-ID') + ',00';
+
+    card.innerHTML = `
+      <img src="${thumbnail}"
+           alt="Sneaker ${item.name}"
+           class="sneaker-image" />
+      <p class="sneaker-name">${item.name}</p>
+      <p class="sneaker-price">Rp ${formattedPrice}</p>
+    `;
+    container.appendChild(card);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', init);
