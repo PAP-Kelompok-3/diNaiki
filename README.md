@@ -6,7 +6,7 @@
   <a href="https://github.com/PAP-Kelompok-3/diNaiki">
     <img src="src/img/secondaryLogo.svg" alt="Logo" style="width: 250px">
   </a>
-
+  
 <h3 align="center">diNaiki</h3>
 
   <p align="center">
