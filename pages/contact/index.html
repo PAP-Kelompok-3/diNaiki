@@ -1,8 +1,9 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact Us</title>
+  <title>diNaiki - Contact Us</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="src/css/styles.css" />
@@ -13,25 +14,24 @@
   <link rel="shortcut icon" href="../../src/favicon/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="../../src/favicon/apple-touch-icon.png" />
   <meta name="apple-mobile-web-app-title" content="diNaiki" />
-
 </head>
 <body>
   <!-- Navbar -->
   <div id="header-placeholder"></div>
 
   <!-- Main content -->
-  <main>
-    <!-- Left side -->
+  <main class="contact-container">
+    <!-- Left side: Contact Info -->
     <section class="contact-info">
       <h1>Contact Us</h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-        eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      <p class="info-desc">
+        Ingin bertanya tentang produk atau kerjasama? Tim diNaiki siap membantu. Silakan hubungi kami melalui detail di
+        bawah atau kirim pesan lewat formulir.
       </p>
       <div class="contact-details">
         <div class="detail">
           <i class="fas fa-phone-alt"></i>
-          <span>+62 812-345-678-90</span>
+          <span>+62 812-345-678-90</span>
         </div>
         <div class="detail">
           <i class="fas fa-envelope"></i>
@@ -39,39 +39,40 @@
         </div>
         <div class="detail">
           <i class="fas fa-map-marker-alt"></i>
-          <span>Sukun Malang, Indonesia</span>
+          <span>Sukun, Malang, Indonesia</span>
         </div>
       </div>
     </section>
 
-    <!-- Right side form -->
+    <!-- Right side: Contact Form -->
     <section class="contact-form-section">
-      <form class="contact-form">
+      <form class="contact-form" novalidate>
         <div class="form-row">
           <div class="form-col">
             <label for="firstName">First Name</label>
-            <input id="firstName" name="firstName" type="text" placeholder="First" />
+            <input id="firstName" name="firstName" type="text" placeholder="First" required />
           </div>
           <div class="form-col">
             <label for="lastName">Last Name</label>
-            <input id="lastName" name="lastName" type="text" placeholder="Last" />
+            <input id="lastName" name="lastName" type="text" placeholder="Last" required />
           </div>
         </div>
         <div class="form-col">
           <label for="email">Email</label>
-          <input id="email" name="email" type="email" placeholder="example@mail.com" />
+          <input id="email" name="email" type="email" placeholder="example@mail.com" required />
         </div>
         <div class="form-col">
           <label for="phone">Phone</label>
-          <input id="phone" name="phone" type="tel" placeholder="xxxx-xxxx-xxxx" />
+          <input id="phone" name="phone" type="tel" placeholder="0812-xxxx-xxxx" required />
         </div>
         <div class="form-col">
           <label for="message">Message</label>
-          <textarea id="message" name="message" rows="6" placeholder="Type your message..."></textarea>
+          <textarea id="message" name="message" placeholder="Type your message..." required></textarea>
         </div>
         <div class="form-actions">
           <button type="submit" class="submit-btn">
-            Submit
+            Send Message
+            <i class="fas fa-paper-plane"></i>
           </button>
         </div>
       </form>
