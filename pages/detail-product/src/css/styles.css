@@ -5,46 +5,35 @@ body {
   color: black;
 }
 
-/* Main */
 main {
   max-width: 1120px;
   margin: 40px auto;
   padding: 0 24px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  /* Default for larger screens */
   gap: 40px;
 }
 
-/* Left side images */
 .main-image {
   width: 100%;
   max-width: 480px;
   height: 400px;
-  /* You might want to make this 'auto' for better responsiveness if aspect ratio varies */
   border-radius: 8px;
-  background-color: #d1d5db;
-  object-fit: cover;
+  background-color: #E4E4E4;
   display: block;
-  /* Added to prevent extra space below image if any */
   margin-left: auto;
-  /* Center image if container is wider */
   margin-right: auto;
-  /* Center image if container is wider */
 }
 
 .thumbnails-container {
   margin-top: 16px;
   max-width: 480px;
-  /* Ensure it doesn't exceed main image width */
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 16px;
   margin-left: auto;
-  /* Center thumbnails container */
   margin-right: auto;
-  /* Center thumbnails container */
 }
 
 .thumb-arrow {
@@ -68,12 +57,10 @@ main {
   width: 64px;
   height: 64px;
   border-radius: 8px;
-  background-color: #d1d5db;
-  object-fit: cover;
+  background-color: #E4E4E4;
   cursor: pointer;
 }
 
-/* Right side product details */
 .product-title {
   font-size: 36px;
   font-weight: 400;
@@ -149,10 +136,8 @@ hr {
   display: flex;
   gap: 24px;
   max-width: 400px;
-  /* Original max-width, becomes 100% on small screens */
   margin-top: 20px;
   flex-wrap: wrap;
-  /* Allow buttons to wrap if needed, though stacking is preferred on small screens */
 }
 
 .btn-add {
@@ -163,12 +148,9 @@ hr {
   border: none;
   border-radius: 8px;
   padding: 12px 24px;
-  /* Adjusted padding slightly for flexibility */
   cursor: pointer;
   flex: 1 1 150px;
-  /* Allow buttons to grow and shrink, with a base size */
   max-width: 200px;
-  /* Retain max-width per button when side-by-side */
   text-align: center;
 }
 
@@ -184,12 +166,9 @@ hr {
   border: 1px solid black;
   border-radius: 8px;
   padding: 12px 24px;
-  /* Adjusted padding slightly for flexibility */
   cursor: pointer;
   flex: 1 1 150px;
-  /* Allow buttons to grow and shrink, with a base size */
   max-width: 200px;
-  /* Retain max-width per button when side-by-side */
   text-align: center;
 }
 
@@ -197,18 +176,13 @@ hr {
   background-color: #f3f4f6;
 }
 
-/* Responsive Adjustments - NEW/MODIFIED */
 @media (max-width: 992px) {
-
-  /* Adjust breakpoint if necessary, e.g., for tablets */
   main {
     gap: 30px;
-    /* Slightly reduce gap for medium screens */
   }
 
   .product-title {
     font-size: 32px;
-    /* Slightly smaller title */
   }
 }
 
@@ -216,26 +190,20 @@ hr {
 
   main {
     grid-template-columns: 1fr;
-    /* Stack the two main sections vertically */
     gap: 30px;
-    /* Adjust gap for stacked layout */
   }
 
   .main-image {
     max-width: 100%;
-    /* Allow images to take full width of their column */
     height: auto;
-    /* Adjust height automatically for responsiveness */
   }
 
   .thumbnails-container {
     max-width: 100%;
-    /* Allow thumbnails container to take full width */
   }
 
   .product-title {
     font-size: 28px;
-    /* Further reduce title size for mobile */
     letter-spacing: 0.1em;
   }
 
@@ -245,19 +213,14 @@ hr {
 
   .buttons {
     flex-direction: column;
-    /* Stack buttons vertically */
     gap: 15px;
-    /* Adjust gap for stacked buttons */
     max-width: 100%;
-    /* Allow button container to take full width */
   }
 
   .btn-add,
   .btn-buy {
     max-width: 100%;
-    /* Allow buttons to take full width when stacked */
     flex-basis: auto;
-    /* Reset flex-basis for stacked layout */
   }
 }
 
@@ -265,28 +228,22 @@ hr {
 
   .product-title {
     font-size: 24px;
-    /* Even smaller title */
   }
 
   .thumbnails {
     gap: 8px;
-    /* Reduce gap between thumbnails */
     flex-wrap: wrap;
-    /* Allow thumbnails to wrap if needed */
     justify-content: center;
-    /* Center thumbnails if they wrap */
   }
 
   .thumbnail {
     width: 56px;
-    /* Slightly smaller thumbnails, adjust as needed */
     height: 56px;
   }
 
   .btn-add,
   .btn-buy {
     font-size: 16px;
-    /* Smaller button text */
     padding: 10px 20px;
   }
 }

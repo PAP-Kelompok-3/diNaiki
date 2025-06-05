@@ -18,90 +18,52 @@
 </head>
 
 <body>
-  <!-- Navbar -->
+
   <div id="header-placeholder"></div>
 
   <main>
-    <!-- Bagian Gambar Utama & Thumbnails -->
     <section>
-      <!-- main-image sekarang pakai id="main-image" -->
-      <img id="main-image" src="../../src/img/detail-product-0.svg" alt="placeholder large image" class="main-image"
-        width="480" height="400" />
-
+      <img id="main-image" class="main-image" width="480" height="400" />
       <div class="thumbnails-container" aria-label="Product image thumbnails with navigation arrows">
         <button class="thumb-arrow" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
-        <!-- thumbnails sekarang pakai id="thumbnails" -->
         <div class="thumbnails" id="thumbnails">
-          <!-- Thumbnail awal hanya placeholder, nanti di‐replace oleh JS -->
-          <img src="../../src/img/detail-product-1.svg" alt="Thumbnail placeholder" class="thumbnail" width="64"
-            height="64" />
-          <img src="../../src/img/detail-product-2.svg" alt="Thumbnail placeholder" class="thumbnail" width="64"
-            height="64" />
-          <img src="../../src/img/detail-product-3.svg" alt="Thumbnail placeholder" class="thumbnail" width="64"
-            height="64" />
-          <img src="../../src/img/detail-product-4.svg" alt="Thumbnail placeholder" class="thumbnail" width="64"
-            height="64" />
-          <img src="../../src/img/detail-product-5.svg" alt="Thumbnail placeholder" class="thumbnail" width="64"
-            height="64" />
         </div>
         <button class="thumb-arrow" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
       </div>
     </section>
-
-    <!-- Bagian Detail Produk -->
     <section>
-      <!-- title sekarang pakai id="product-title" -->
-      <h1 id="product-title" class="product-title">diNaiki Fire-Die 1</h1>
-
+      <h1 id="product-title" class="product-title">diNaiki</h1>
       <div class="price-and-rating">
-        <!-- price sekarang pakai id="product-price" -->
-        <p id="product-price" class="price">Rp 1.500.000,00</p>
-
+        <p id="product-price" class="price">Rp x.xxx.xxx,xx</p>
         <div class="rating">
-          <!-- sold sekarang pakai id="sold-count" -->
-          <span id="sold-count">1234 sold</span>
+          <span id="sold-count">xxx sold</span>
           <span>·</span>
-          <!-- rating sekarang pakai id="rating-value" -->
-          <span id="rating-value">4.9</span>
+          <span id="rating-value">x.x</span>
           <i class="fas fa-star"></i>
         </div>
       </div>
-
       <hr />
-
       <div>
         <h2 class="section-title">Description</h2>
-        <!-- deskripsi sekarang pakai id="product-description" -->
         <p id="product-description" class="description">
-          Placeholder deskripsi...
+          diNaiki
         </p>
       </div>
-
       <div>
         <h3 class="section-title">Size</h3>
-        <!-- sizes-container sekarang pakai id="sizes-container" -->
         <div class="sizes" id="sizes-container">
-          <!-- Kotak ukuran awal sebagai placeholder, akan direplace JS -->
-          <div class="size-box" data-size="46">46</div>
-          <div class="size-box" data-size="47">47</div>
-          <div class="size-box" data-size="48">48</div>
-          <div class="size-box" data-size="49">49</div>
         </div>
         <input type="hidden" id="selectedSize" name="size" />
       </div>
-
       <div class="buttons">
-        <!-- tombol ini tetap punya class untuk styling, tetapi bisa di‑target via class atau tambahkan id -->
         <button class="btn-add" id="btn-add" type="button">Add to cart</button>
         <button class="btn-buy" id="btn-buy" type="button">Buy it now</button>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
   <div id="footer-placeholder"></div>
 
-  <!-- Panggil script.js terlebih dahulu, lalu inject‑partials jika perlu -->
   <script src="src/js/script.js"></script>
   <script src="../../src/js/inject-partials.js"></script>
 </body>

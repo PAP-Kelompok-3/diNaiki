@@ -58,7 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
       // 4a. Ganti gambar utama dengan gambar pertama di array item.images
       if (mainImageEl && item.images?.length > 0) {
         mainImageEl.src = item.images[0];
-        mainImageEl.alt = item.name;
       }
 
       // 4b. Render semua thumbnail (kecuali yang mengandung 'size-chart')
@@ -70,14 +69,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
           const thumb = document.createElement("img");
           thumb.src = imgUrl;
-          thumb.alt = `Thumbnail ${i + 1} - ${item.name}`;
           thumb.className = "thumbnail";
           thumb.width = 64;
           thumb.height = 64;
           // Jika thumbnail diklik → ganti main image
           thumb.addEventListener("click", () => {
             mainImageEl.src = imgUrl;
-            mainImageEl.alt = `${item.name} - Thumbnail ${i + 1}`;
           });
           thumbsEl.appendChild(thumb);
         });
