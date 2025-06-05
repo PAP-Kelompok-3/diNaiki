@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
       imageUrls = item.images.filter(url => !url.includes("size-chart"));
 
       currentImageIndex = 0;
-      mainImageEl.src = imageUrls[currentImageIndex];
+      fadeToImage(currentImageIndex);
 
       if (thumbsEl) {
         thumbsEl.innerHTML = "";
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (prevActive) prevActive.classList.remove("active-thumb");
 
             currentImageIndex = i;
-            mainImageEl.src = imageUrls[currentImageIndex];
+            fadeToImage(currentImageIndex);
             thumb.classList.add("active-thumb");
           });
           thumbsEl.appendChild(thumb);
@@ -151,11 +151,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateMainImage(newIndex) {
     currentImageIndex = newIndex;
-    mainImageEl.src = imageUrls[currentImageIndex];
+    fadeToImage(currentImageIndex);
 
     const allThumbs = thumbsEl.querySelectorAll(".thumbnail");
     allThumbs.forEach((thumbImg, idx) => {
       thumbImg.classList.toggle("active-thumb", idx === currentImageIndex);
     });
+  }
+
+  function fadeToImage(newIndex) {
+    // Pastikan newIndex valid
+    if (newIndex < 0 || newIndex >= imageUrls.length) return;
+
+    // Fade out: set opacity ke 0.5
+    mainImageEl.style.opacity = '0.5';
+
+    // Setelah durasi fade (0.4s), ganti gambar dan fade in
+    setTimeout(() => {
+      currentImageIndex = newIndex;
+      mainImageEl.src = imageUrls[currentImageIndex];
+      // Fade in: kembalikan opacity ke 1
+      mainImageEl.style.opacity = '1';
+    }, 200); // durasi 200ms sama dengan di CSS
   }
 });
