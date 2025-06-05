@@ -76,9 +76,11 @@ function renderSneakers(arrSneakers, imageItem = 0) {
     const formattedPrice = item.price.toLocaleString('id-ID') + ',00';
 
     card.innerHTML = `
-      <img src="${thumbnail}"
-           alt="Sneaker ${item.name}"
-           class="sneaker-image" />
+      <a href="pages/detail-product/?id=${item.id}">
+        <img src="${thumbnail}"
+             alt="Sneaker ${item.name}"
+             class="sneaker-image" />
+      </a>
       <p class="sneaker-name">${item.name}</p>
       <p class="sneaker-price">Rp ${formattedPrice}</p>
     `;
