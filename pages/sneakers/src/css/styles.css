@@ -1,0 +1,64 @@
+/* Main Content Styles */
+.main-content {
+  padding: 1.5rem 1.5rem;
+  /* px-6 py-6 */
+  max-width: 80rem;
+  /* max-w-7xl */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page-title {
+  font-size: 1.25rem;
+  /* text-xl */
+  font-weight: 400;
+  /* font-normal */
+  margin-bottom: 1.5rem;
+  /* mb-6 */
+}
+
+.product-grid {
+  display: grid;
+  /* Mobile default: 2 columns */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem 1.5rem;
+  /* gap-y-8 gap-x-6 */
+  max-width: 64rem;
+  /* max-w-5xl */
+}
+
+.product-card img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 0.25rem;
+}
+
+.product-card h3 {
+  margin-top: 0.5rem;
+  /* mt-2 */
+  font-weight: 600;
+  /* font-semibold */
+  letter-spacing: 0.1em;
+  /* tracking-widest */
+  font-size: 1rem;
+  /* text-base */
+}
+
+.product-card p {
+  font-size: 0.75rem;
+  /* text-xs */
+  font-weight: 400;
+  /* font-normal */
+  color: #4b5563;
+}
+
+/* md: 768px */
+@media (min-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    /* md:grid-cols-3 */
+  }
+
+  /* md:col-span-2 */
+}

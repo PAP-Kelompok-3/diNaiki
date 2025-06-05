@@ -19,9 +19,10 @@ async function init() {
 function loadComponent(id, file) {
   fetch(file)
     .then(response => response.text())
-    .then(data => {
-      document.getElementById(id).innerHTML = data;
-    });
+    .then(html => {
+      document.getElementById(id).innerHTML = html;
+    })
+    .catch(err => console.error(`Gagal load component ${file}:`, err));
 }
 
 function renderNewArrival(item, imageItem = 0) {
