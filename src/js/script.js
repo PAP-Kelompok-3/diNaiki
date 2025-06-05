@@ -8,11 +8,9 @@ async function init() {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const sneakers = await res.json();
 
+    renderNewArrival(sneakers[10], 2);
     renderSneakers(sneakers.slice(0, 6));
 
-    if (sneakers.length >= 10) {
-      renderNewArrival(sneakers[9]);
-    }
   } catch (err) {
     console.error('Gagal memuat data.json:', err);
   }
@@ -26,7 +24,7 @@ function loadComponent(id, file) {
     });
 }
 
-function renderNewArrival(item) {
+function renderNewArrival(item, imageItem = 0) {
   const imgEl = document.getElementById('new-image');
   const nameEl = document.getElementById('new-name');
   const priceEl = document.getElementById('new-price');
@@ -35,7 +33,7 @@ function renderNewArrival(item) {
   const addCartBtn = document.getElementById('new-addcart');
 
   if (imgEl && item.images && item.images.length > 0) {
-    imgEl.src = item.images[1];
+    imgEl.src = item.images[imageItem];
     imgEl.alt = item.name;
   }
 
@@ -52,7 +50,7 @@ function renderNewArrival(item) {
   }
 
   if (detailLink) {
-    detailLink.href = `pages/detail-product.html?product=${encodeURIComponent(item.name)}`;
+    detailLink.href = `pages/detail-product/?id=${item.id}`;
   }
 
   if (addCartBtn) {
@@ -62,7 +60,7 @@ function renderNewArrival(item) {
   }
 }
 
-function renderSneakers(arrSneakers) {
+function renderSneakers(arrSneakers, imageItem = 0) {
   const container = document.getElementById('sneaker-container');
   if (!container) return;
   container.innerHTML = '';
@@ -72,7 +70,7 @@ function renderSneakers(arrSneakers) {
     card.className = 'sneaker-item';
 
     const thumbnail = (item.images && item.images.length > 0)
-      ? item.images[0]
+      ? item.images[imageItem]
       : '';
 
     const formattedPrice = item.price.toLocaleString('id-ID') + ',00';
