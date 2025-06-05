@@ -1,9 +1,11 @@
+/* ---------- Main Layout ---------- */
 main {
   max-width: 768px;
   margin: 0 auto;
   padding: 0 24px 64px;
 }
 
+/* ---------- About Title ---------- */
 h1.about-title {
   font-weight: 600;
   font-size: 20px;
@@ -11,14 +13,17 @@ h1.about-title {
   margin: 40px 0 24px;
 }
 
+/* ---------- Hero Image ---------- */
 .hero-image {
   width: 100%;
   background-color: #d1d5db;
   border-radius: 6px;
   aspect-ratio: 4 / 2.3;
   margin-bottom: 48px;
+  object-fit: cover;
 }
 
+/* ---------- Logo Center ---------- */
 .logo-center {
   display: block;
   margin: 0 auto 48px;
@@ -26,6 +31,7 @@ h1.about-title {
   width: 200px;
 }
 
+/* ---------- Main Heading & Paragraph ---------- */
 h2.main-heading {
   font-weight: 600;
   font-size: 32px;
@@ -41,26 +47,50 @@ p.main-paragraph {
   line-height: 1.4;
 }
 
+/* ---------- Team Section ---------- */
 h3.team-title {
   font-weight: 600;
   font-size: 18px;
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: 32px;
 }
 
-.team-images {
-  display: flex;
-  justify-content: space-between;
+/* Grid container untuk team—responsif otomatis */
+.team-grid {
+  display: grid;
   gap: 24px;
   margin-bottom: 48px;
+  /* Grid dengan kolom otomatis: maksimal 4 kolom, minimal tiap kolom 150px */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 }
 
-.team-image {
-  border-radius: 6px;
-  flex: 1 1 0;
+/* Kartu tiap anggota tim */
+.team-card {
+  text-align: center;
+}
+
+.team-card img {
+  width: 100%;
   aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.2s;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 4px;
 }
 
+.team-card img:hover {
+  transform: scale(1.05);
+}
+
+/* Nama anggota tim di bawah gambar */
+.team-name {
+  margin-top: 12px;
+  font-weight: 500;
+  font-size: 14px;
+  color: #333;
+}
+
+/* ---------- Testimonial Section ---------- */
 section.testimonial {
   max-width: 720px;
   margin: 0 auto 64px;
@@ -85,6 +115,7 @@ h4.testimonial-title {
   width: 96px;
   height: 96px;
   flex-shrink: 0;
+  object-fit: cover;
 }
 
 .testimonial-text {
@@ -97,18 +128,40 @@ h4.testimonial-title {
   margin-top: 12px;
 }
 
+/* ---------- Responsive (Mobile) ---------- */
 @media (max-width: 480px) {
-
-  .team-images {
-    flex-direction: column;
+  main {
+    padding: 0 16px 48px;
   }
 
-  .team-image {
-    width: 100%;
+  h1.about-title {
+    font-size: 18px;
+    margin: 32px 0 16px;
+  }
+
+  h2.main-heading {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+
+  p.main-paragraph {
+    font-size: 13px;
+    margin-bottom: 32px;
+  }
+
+  /* Ubah grid jadi satu kolom di mobile */
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .team-card img {
     aspect-ratio: auto;
-    height: 160px;
+    height: 200px;
   }
 
+  /* Testimonial stck vertikal */
   .testimonial-content {
     flex-direction: column;
     align-items: center;
