@@ -35,7 +35,6 @@ function renderNewArrival(item, imageItem = 0) {
 
   if (imgEl && item.images && item.images.length > 0) {
     imgEl.src = item.images[imageItem];
-    imgEl.alt = item.name;
   }
 
   if (nameEl) {
@@ -80,7 +79,6 @@ function renderSneakers(arrSneakers, imageItem = 0) {
     card.innerHTML = `
       <a href="pages/detail-product/?id=${item.id}">
         <img src="${thumbnail}"
-             alt="Sneaker ${item.name}"
              class="sneaker-image" />
       </a>
       <p class="sneaker-name">${item.name}</p>

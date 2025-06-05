@@ -50,8 +50,16 @@ main {
   width: 64px;
   height: 64px;
   border-radius: 8px;
-  background-color: #E4E4E4;
   cursor: pointer;
+  margin: 0 4px;
+  opacity: 0.6;
+  background-color: #E4E4E4;
+  transition: opacity 0.2s, border 0.2s;
+}
+
+.thumbnail.active-thumb {
+  border: 2px solid #333;
+  opacity: 1;
 }
 
 .product-title {
