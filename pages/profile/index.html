@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>diNaiki - Profile</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
+  <link href="src/css/styles.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../src/css/header-footer.css" />
+
+  <link rel="icon" type="image/png" href="../../src/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="../../src/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="../../src/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../../src/favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="diNaiki" />
+</head>
+<body>
+  <!-- Header -->
+  <div id="header-placeholder"></div>
+
+  <main class="main-content">
+    <h2 class="profile-title">Profile</h2>
+    <div class="profile-layout">
+      <!-- Left Sidebar -->
+      <aside class="profile-sidebar">
+        <div class="sidebar-user-info">
+          <img alt="Profile picture of a man with short light brown hair and green shirt" class="sidebar-user-avatar"
+            height="48" src="https://storage.googleapis.com/a1aa/image/355a0cbe-9878-41e4-4188-ecc42fa6dc21.jpg"
+            width="48" onerror="this.src='https://placehold.co/48x48/cccccc/333333?text=User'; this.onerror=null;" />
+          <div class="sidebar-user-text">
+            <p>Hello</p>
+            <p class="sidebar-user-name">John Doe</p>
+          </div>
+        </div>
+        <nav class="sidebar-nav">
+          <a class="sidebar-nav-link" href="#">
+            <i class="fas fa-box-open menu-icon"></i>
+            <span>My Orders</span>
+          </a>
+          <a class="sidebar-nav-link" href="#">
+            <i class="fas fa-ban menu-icon"></i>
+            <span>Returns &amp; Cancel</span>
+          </a>
+          <a class="sidebar-nav-link" href="#">
+            <i class="far fa-heart menu-icon"></i>
+            <span>My Wishlist</span>
+          </a>
+          <a class="sidebar-nav-link" href="#">
+            <i class="far fa-credit-card menu-icon"></i>
+            <span>Payment</span>
+          </a>
+          <a class="sidebar-nav-link" href="#">
+            <i class="far fa-star menu-icon"></i>
+            <span>My Rating &amp; Reviews</span>
+          </a>
+          <a class="sidebar-nav-link" href="#">
+            <i class="fas fa-sign-out-alt menu-icon"></i>
+            <span>Log Out</span>
+          </a>
+        </nav>
+      </aside>
+      <!-- Right Content -->
+      <section aria-label="Personal Information" class="profile-section">
+        <header class="profile-section-header">
+          <h3 class="profile-section-title">Personal Information</h3>
+        </header>
+        <form class="profile-form">
+          <div class="profile-picture-upload">
+            <img alt="Profile picture of a man with short light brown hair and green shirt"
+              class="profile-picture-large" height="160"
+              src="https://storage.googleapis.com/a1aa/image/355a0cbe-9878-41e4-4188-ecc42fa6dc21.jpg" width="160"
+              onerror="this.src='https://placehold.co/160x160/cccccc/333333?text=User'; this.onerror=null;" />
+            <button class="upload-button" type="button">Upload new Picture</button>
+          </div>
+          <div class="form-fields">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input class="form-input" id="firstName" name="firstName" placeholder="First" type="text" />
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input class="form-input" id="lastName" name="lastName" placeholder="Last" type="text" />
+            </div>
+            <div class="form-group">
+              <label for="dob">Date of Birth</label>
+              <input class="form-input" id="dob" name="dob" placeholder="dd/mm/yyyy" type="text" />
+            </div>
+            <button class="submit-button" type="submit">Submit</button>
+          </div>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <div id="footer-placeholder"></div>
+  <script src="../../src/js/inject-partials.js"></script>
+</body>
+</html>

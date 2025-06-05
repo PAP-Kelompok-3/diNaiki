@@ -29,8 +29,8 @@ function renderNewArrival(item, imageItem = 0) {
   const nameEl = document.getElementById('new-name');
   const priceEl = document.getElementById('new-price');
   const descEl = document.getElementById('new-desc');
-  const detailLink = document.getElementById('new-detail-link');
   const addCartBtn = document.getElementById('new-addcart');
+  const detailLink = document.getElementById('new-detail-link');
 
   if (imgEl && item.images && item.images.length > 0) {
     imgEl.src = item.images[imageItem];
@@ -49,14 +49,15 @@ function renderNewArrival(item, imageItem = 0) {
     descEl.textContent = item.description;
   }
 
-  if (detailLink) {
-    detailLink.href = `pages/detail-product/?id=${item.id}`;
+  if (addCartBtn) {
+    // addCartBtn.addEventListener('click', () => {
+    //   alert(`"${item.name}" telah ditambahkan ke keranjang!`);
+    // });
+    addCartBtn.href = `pages/detail-product/?id=${item.id}`;
   }
 
-  if (addCartBtn) {
-    addCartBtn.addEventListener('click', () => {
-      alert(`"${item.name}" telah ditambahkan ke keranjang!`);
-    });
+  if (detailLink) {
+    detailLink.href = `pages/detail-product/?id=${item.id}`;
   }
 }
 
