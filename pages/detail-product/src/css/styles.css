@@ -16,6 +16,8 @@ main {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  opacity: 0.5;
+  transition: opacity 0.2s ease-in-out;
 }
 
 .thumbnails-container {
@@ -233,7 +235,7 @@ hr {
 
   .thumbnails {
     gap: 8px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
   }
 
