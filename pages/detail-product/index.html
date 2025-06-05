@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -8,6 +9,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
   <link href="src/css/styles.css" rel="stylesheet" />
   <link rel="stylesheet" href="../../src/css/header-footer.css" />
+
+  <link rel="icon" type="image/png" href="../../src/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="../../src/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="../../src/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../../src/favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="diNaiki" />
 </head>
 
 <body>
@@ -15,58 +22,66 @@
   <div id="header-placeholder"></div>
 
   <main>
+    <!-- Bagian Gambar Utama & Thumbnails -->
     <section>
-      <img src="../../src/img/detail-product-0.svg"
-        alt="Large placeholder image of product diNaiki Fire-Die 1, light gray background" class="main-image"
+      <!-- main-image sekarang pakai id="main-image" -->
+      <img id="main-image" src="../../src/img/detail-product-0.svg" alt="placeholder large image" class="main-image"
         width="480" height="400" />
+
       <div class="thumbnails-container" aria-label="Product image thumbnails with navigation arrows">
         <button class="thumb-arrow" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
-        <div class="thumbnails">
-          <img src="../../src/img/detail-product-1.svg"
-            alt="Thumbnail placeholder image 1 for product diNaiki Fire-Die 1, light gray background" class="thumbnail"
-            width="64" height="64" />
-          <img src="../../src/img/detail-product-2.svg"
-            alt="Thumbnail placeholder image 2 for product diNaiki Fire-Die 1, light gray background" class="thumbnail"
-            width="64" height="64" />
-          <img src="../../src/img/detail-product-3.svg"
-            alt="Thumbnail placeholder image 3 for product diNaiki Fire-Die 1, light gray background" class="thumbnail"
-            width="64" height="64" />
-          <img src="../../src/img/detail-product-4.svg"
-            alt="Thumbnail placeholder image 4 for product diNaiki Fire-Die 1, light gray background" class="thumbnail"
-            width="64" height="64" />
-          <img src="../../src/img/detail-product-5.svg"
-            alt="Thumbnail placeholder image 5 for product diNaiki Fire-Die 1, light gray background" class="thumbnail"
-            width="64" height="64" />
+        <!-- thumbnails sekarang pakai id="thumbnails" -->
+        <div class="thumbnails" id="thumbnails">
+          <!-- Thumbnail awal hanya placeholder, nanti di‐replace oleh JS -->
+          <img src="../../src/img/detail-product-1.svg" alt="Thumbnail placeholder" class="thumbnail" width="64"
+            height="64" />
+          <img src="../../src/img/detail-product-2.svg" alt="Thumbnail placeholder" class="thumbnail" width="64"
+            height="64" />
+          <img src="../../src/img/detail-product-3.svg" alt="Thumbnail placeholder" class="thumbnail" width="64"
+            height="64" />
+          <img src="../../src/img/detail-product-4.svg" alt="Thumbnail placeholder" class="thumbnail" width="64"
+            height="64" />
+          <img src="../../src/img/detail-product-5.svg" alt="Thumbnail placeholder" class="thumbnail" width="64"
+            height="64" />
         </div>
         <button class="thumb-arrow" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
       </div>
     </section>
+
+    <!-- Bagian Detail Produk -->
     <section>
-      <h1 class="product-title">diNaiki Fire-Die 1</h1>
+      <!-- title sekarang pakai id="product-title" -->
+      <h1 id="product-title" class="product-title">diNaiki Fire-Die 1</h1>
+
       <div class="price-and-rating">
-        <p class="price">Rp 1.500.000,00</p>
+        <!-- price sekarang pakai id="product-price" -->
+        <p id="product-price" class="price">Rp 1.500.000,00</p>
 
         <div class="rating">
-          <span>1234 sold</span>
+          <!-- sold sekarang pakai id="sold-count" -->
+          <span id="sold-count">1234 sold</span>
           <span>·</span>
-          <span>4,9</span>
+          <!-- rating sekarang pakai id="rating-value" -->
+          <span id="rating-value">4.9</span>
           <i class="fas fa-star"></i>
         </div>
       </div>
+
       <hr />
+
       <div>
         <h2 class="section-title">Description</h2>
-        <p class="description">Hadapi setiap tantangan dan lampaui batas dengan diNaiki Fire-Die 1. Sepatu ini
-          dirancang khusus bagi Anda yang berjiwa petualang dan tak kenal lelah. Menggabungkan desain modern yang
-          memukau dengan material premium, Fire-Die 1 menawarkan durabilitas superior dan kenyamanan tak tertandingi
-          untuk menemani setiap langkah Anda. Baik menjelajahi perkotaan maupun menaklukkan medan terjal, teknologi
-          sol inovatifnya memberikan cengkeraman optimal dan stabilitas, sementara bagian atas yang breathable menjaga
-          kaki tetap sejuk dan nyaman sepanjang hari. Bersiaplah untuk melangkah lebih jauh dengan diNaiki Fire-Die 1.
+        <!-- deskripsi sekarang pakai id="product-description" -->
+        <p id="product-description" class="description">
+          Placeholder deskripsi...
         </p>
       </div>
+
       <div>
         <h3 class="section-title">Size</h3>
-        <div class="sizes">
+        <!-- sizes-container sekarang pakai id="sizes-container" -->
+        <div class="sizes" id="sizes-container">
+          <!-- Kotak ukuran awal sebagai placeholder, akan direplace JS -->
           <div class="size-box" data-size="46">46</div>
           <div class="size-box" data-size="47">47</div>
           <div class="size-box" data-size="48">48</div>
@@ -74,14 +89,19 @@
         </div>
         <input type="hidden" id="selectedSize" name="size" />
       </div>
+
       <div class="buttons">
-        <button class="btn-add" type="button">Add to cart</button>
-        <button class="btn-buy" type="button">Buy it now</button>
+        <!-- tombol ini tetap punya class untuk styling, tetapi bisa di‑target via class atau tambahkan id -->
+        <button class="btn-add" id="btn-add" type="button">Add to cart</button>
+        <button class="btn-buy" id="btn-buy" type="button">Buy it now</button>
       </div>
     </section>
   </main>
+
   <!-- Footer -->
   <div id="footer-placeholder"></div>
+
+  <!-- Panggil script.js terlebih dahulu, lalu inject‑partials jika perlu -->
   <script src="src/js/script.js"></script>
   <script src="../../src/js/inject-partials.js"></script>
 </body>
