@@ -116,6 +116,11 @@ h4.testimonial-title {
   height: 96px;
   flex-shrink: 0;
   object-fit: cover;
+  transition: transform 0.2s;
+}
+
+.testimonial-avatar:hover {
+  transform: scale(1.05);
 }
 
 .testimonial-text {

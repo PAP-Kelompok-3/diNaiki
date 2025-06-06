@@ -2,19 +2,32 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>diNaiki - Home</title>
-  <meta name="description"
-    content="diNaiki - Your destination for the latest sneakers and fashion trends. Discover our new arrivals and exclusive collections." />
+  <title>diNaiki</title>
+
+  <!-- External Libraries -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+
+  <!-- App Stylesheets -->
+  <!-- Pastikan path ini sesuai dengan struktur folder Anda -->
   <link href="src/css/styles.css" rel="stylesheet" />
   <link rel="stylesheet" href="src/css/header-footer.css" />
 
-  <link rel="icon" type="image/png" href="src/favicon/favicon-96x96.png" sizes="96x96" />
+  <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="src/favicon/favicon.svg" />
-  <link rel="shortcut icon" href="src/favicon/favicon.ico" />
+  <link rel="icon" type="image/png" href="src/favicon/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="src/favicon/favicon-16x16.png" sizes="16x16" />
   <link rel="apple-touch-icon" sizes="180x180" href="src/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="src/favicon/site.webmanifest">
+  <link rel="mask-icon" href="src/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
   <meta name="apple-mobile-web-app-title" content="diNaiki" />
+  <meta name="application-name" content="diNaiki" />
 
 </head>
 <body>
@@ -23,7 +36,7 @@
 
   <main>
     <h1 class="about-title">diNaiki in a good way.</h1>
-    <img src="src/img/banner.svg" class="hero-image" />
+    <img loading="lazy" src="src/img/banner.svg" class="hero-image" />
 
     <div class="marquee-container" aria-hidden="true">
       <p class="marquee-text">
@@ -35,7 +48,7 @@
     </div>
 
     <section class="new-arrival-section container" aria-label="New Arrival Product">
-      <img id="new-image" class="new-arrival-image" />
+      <img loading="lazy" id="new-image" class="new-arrival-image" />
       <div class="new-arrival-content">
         <h2 id="new-name">diNaiki</h2>
         <p class="price" id="new-price">Rp x.xxx.xxx,xx</p>
@@ -62,7 +75,7 @@
 
     <section class="collection-section" aria-label="Our Collection">
       <h3 class="collection-title">OUR COLLECTION</h3>
-      <img src="src/img/collection.svg" class="collection-image" />
+      <img loading="lazy" src="src/img/collection.svg" class="collection-image" />
     </section>
 
     <section class="sneakers-section" aria-label="Sneakers">
