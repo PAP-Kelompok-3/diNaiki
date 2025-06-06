@@ -204,9 +204,10 @@ async function initSneakersPage() {
 
 async function initDetailProductPage() {
   const mainEl = document.querySelector('.product-detail-container');
+  if (!mainEl) return;
+
   const params = new URLSearchParams(window.location.search);
   const productId = params.get("id");
-
   if (!productId) {
     mainEl.innerHTML = `<p class="error-message">ID Produk tidak ditemukan.</p>`;
     return;
@@ -214,7 +215,6 @@ async function initDetailProductPage() {
 
   const sneakers = await fetchData();
   const product = sneakers.find(p => p.id == productId);
-
   if (!product) {
     mainEl.innerHTML = `<p class="error-message">Produk tidak ditemukan.</p>`;
     return;
@@ -222,62 +222,182 @@ async function initDetailProductPage() {
 
   setDynamicTitle(product.name);
 
-  // Populate basic info
-  document.getElementById('product-title').textContent = product.name;
-  document.getElementById('product-price').textContent = `Rp ${product.price.toLocaleString('id-ID')}`;
-  document.getElementById('product-description').textContent = product.description;
-  document.getElementById('sold-count').textContent = `${product.sold} terjual`;
-  document.getElementById('rating-value').textContent = product.rating;
+  // --- ELEMEN DOM ---
+  const mainImageEl = document.getElementById("main-image");
+  const thumbsEl = document.getElementById("thumbnails");
+  const prevBtn = document.getElementById('thumb-prev');
+  const nextBtn = document.getElementById('thumb-next');
+  document.getElementById("product-title").textContent = product.name;
+  document.getElementById("product-price").textContent = `Rp ${product.price.toLocaleString("id-ID")}`;
+  document.getElementById("sold-count").textContent = `${product.sold} terjual`;
+  document.getElementById("rating-value").textContent = product.rating;
+  document.getElementById("product-description").textContent = product.description;
+  const sizesContainer = document.getElementById("sizes-container");
+  const selectedSizeInput = document.getElementById("selectedSize");
 
-  // Image gallery
-  const mainImage = document.getElementById('main-image');
-  const thumbnailsContainer = document.getElementById('thumbnails');
+  // Ambil tombol aksi
+  const buyBtn = document.getElementById('btn-buy');
+  const addBtn = document.getElementById('btn-add');
+
+  // --- LOGIKA UTAMA ---
+  const galleryImages = product.images.filter(url => !url.includes('size-chart.svg'));
   let currentImageIndex = 0;
 
-  const galleryImages = product.images.filter(url => !url.includes('size-chart.svg'));
-
-  const updateImage = (index) => {
-    mainImage.src = galleryImages[index];
-    thumbnailsContainer.querySelectorAll('img').forEach((img, i) => {
-      img.classList.toggle('active', i === index);
+  function updateGallery(newIndex) {
+    if (newIndex < 0 || newIndex >= galleryImages.length) return;
+    currentImageIndex = newIndex;
+    mainImageEl.src = galleryImages[currentImageIndex];
+    thumbsEl.querySelectorAll('.thumbnail').forEach((thumb, idx) => {
+      thumb.classList.toggle('active', idx === currentImageIndex);
     });
-    currentImageIndex = index;
-  };
+  }
 
-  galleryImages.forEach((imgSrc, index) => {
-    const thumb = document.createElement('img');
-    thumb.src = imgSrc;
+  thumbsEl.innerHTML = '';
+  galleryImages.forEach((imgUrl, index) => {
+    const thumb = document.createElement("img");
+    thumb.src = imgUrl;
     thumb.alt = `Thumbnail ${index + 1}`;
-    thumb.addEventListener('click', () => updateImage(index));
-    thumbnailsContainer.appendChild(thumb);
-  });
-  updateImage(0); // Set initial image
-
-  document.getElementById('thumb-prev').addEventListener('click', () => {
-    const newIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
-    updateImage(newIndex);
-  });
-  document.getElementById('thumb-next').addEventListener('click', () => {
-    const newIndex = (currentImageIndex + 1) % galleryImages.length;
-    updateImage(newIndex);
+    thumb.className = "thumbnail";
+    thumb.addEventListener("click", () => updateGallery(index));
+    thumbsEl.appendChild(thumb);
   });
 
-  // Size selection
-  const sizesContainer = document.getElementById('sizes-container');
-  const selectedSizeInput = document.getElementById('selectedSize');
+  prevBtn.addEventListener('click', () => updateGallery((currentImageIndex - 1 + galleryImages.length) % galleryImages.length));
+  nextBtn.addEventListener('click', () => updateGallery((currentImageIndex + 1) % galleryImages.length));
+
+  sizesContainer.innerHTML = '';
   product.sizes.forEach(size => {
-    const sizeBox = document.createElement('div');
-    sizeBox.className = 'size-box';
-    sizeBox.textContent = size;
-    sizeBox.addEventListener('click', (e) => {
-      sizesContainer.querySelectorAll('.size-box').forEach(box => box.classList.remove('active'));
-      e.target.classList.add('active');
+    const box = document.createElement("button");
+    box.type = 'button';
+    box.className = "size-box";
+    box.textContent = size;
+    box.addEventListener("click", (e) => {
+      sizesContainer.querySelectorAll('.size-box').forEach(b => b.classList.remove("active"));
+      e.target.classList.add("active");
       selectedSizeInput.value = size;
     });
-    sizesContainer.appendChild(sizeBox);
+    sizesContainer.appendChild(box);
+  });
+
+  if (galleryImages.length > 0) {
+    updateGallery(0);
+  }
+
+  // --- BAGIAN BARU: EVENT LISTENERS UNTUK TOMBOL AKSI ---
+
+  // Listener untuk tombol "Buy it now"
+  buyBtn.addEventListener('click', () => {
+    const selectedSize = selectedSizeInput.value;
+    if (!selectedSize) {
+      alert('Silakan pilih ukuran terlebih dahulu.');
+      return; // Hentikan fungsi jika ukuran belum dipilih
+    }
+
+    // Siapkan data untuk dikirim ke halaman checkout
+    const checkoutUrl = `../pages/checkout.html?product=${encodeURIComponent(product.name)}&size=${encodeURIComponent(selectedSize)}&price=${product.price}&image=${encodeURIComponent(galleryImages[0])}`;
+
+    // Arahkan pengguna ke halaman checkout
+    window.location.href = checkoutUrl;
+  });
+
+  // Listener untuk tombol "Add to cart"
+  addBtn.addEventListener('click', () => {
+    const selectedSize = selectedSizeInput.value;
+    if (!selectedSize) {
+      alert('Silakan pilih ukuran terlebih dahulu.');
+      return;
+    }
+
+    // Simulasi penambahan ke keranjang
+    alert(`"${product.name}" ukuran ${selectedSize} telah ditambahkan ke keranjang! (simulasi)`);
   });
 }
 
+// Ganti seluruh fungsi initCheckoutPage Anda dengan versi yang lebih simpel ini
+
+function initCheckoutPage() {
+  setDynamicTitle('Checkout');
+
+  // --- STATE & ELEMEN ---
+  let productPrice = 0;
+  let shippingCost = 0;
+
+  const params = new URLSearchParams(window.location.search);
+  productPrice = parseFloat(params.get('price')) || 0;
+
+  const orderItemsContainer = document.getElementById('order-items');
+  const subtotalEl = document.getElementById('summary-subtotal');
+  const shippingEl = document.getElementById('summary-shipping');
+  const totalEl = document.getElementById('summary-total');
+  const shippingOptions = document.querySelectorAll('#shipping-options input[type="radio"]');
+  const paymentOptions = document.querySelectorAll('#payment-options .selection-option');
+
+  /**
+   * Fungsi untuk menghitung ulang dan menampilkan total
+   */
+  function updateTotals() {
+    const totalCost = productPrice + shippingCost;
+    subtotalEl.textContent = `Rp ${productPrice.toLocaleString('id-ID')}`;
+    shippingEl.textContent = `Rp ${shippingCost.toLocaleString('id-ID')}`;
+    totalEl.textContent = `Rp ${totalCost.toLocaleString('id-ID')}`;
+  }
+
+  // --- INISIALISASI HALAMAN ---
+  if (!productPrice) {
+    orderItemsContainer.innerHTML = '<p>Keranjang Anda kosong.</p>';
+    return;
+  }
+
+  // Tampilkan item di ringkasan pesanan
+  const productName = params.get('product');
+  const productSize = params.get('size');
+  const productImage = params.get('image');
+  orderItemsContainer.innerHTML = `
+    <div class="summary-item">
+      <img src="${productImage}" alt="${productName}" class="summary-item__image">
+      <div class="summary-item__info">
+        <p class="summary-item__name">${productName}</p>
+        <p class="summary-item__meta">Ukuran: ${productSize || 'N/A'}</p>
+      </div>
+      <span class="summary-item__price">Rp ${productPrice.toLocaleString('id-ID')}</span>
+    </div>`;
+
+  // --- EVENT LISTENERS ---
+
+  // Listener untuk pilihan pengiriman
+  shippingOptions.forEach(radio => {
+    // Set ongkir awal
+    if (radio.checked) {
+      shippingCost = parseFloat(radio.dataset.cost);
+    }
+
+    radio.addEventListener('change', (e) => {
+      // Hapus class 'selected' dari semua opsi
+      e.target.closest('.selection-group').querySelectorAll('.selection-option').forEach(label => label.classList.remove('selected'));
+      // Tambahkan class ke parent label
+      const selectedLabel = e.target.closest('label');
+      selectedLabel.classList.add('selected');
+      // Update biaya pengiriman dan hitung ulang total
+      shippingCost = parseFloat(e.target.dataset.cost);
+      updateTotals();
+    });
+    // Tandai pilihan default
+    if (radio.checked) radio.closest('label').classList.add('selected');
+  });
+
+  // Listener untuk pilihan pembayaran
+  paymentOptions.forEach(label => {
+    label.addEventListener('click', () => {
+      paymentOptions.forEach(opt => opt.classList.remove('selected'));
+      label.classList.add('selected');
+      label.querySelector('input[type="radio"]').checked = true;
+    });
+    if (label.querySelector('input').checked) label.classList.add('selected');
+  });
+
+  // Panggil updateTotals() pertama kali untuk menampilkan harga awal
+  updateTotals();
+}
 
 // --- App Router ---
 function App() {
@@ -306,6 +426,9 @@ function App() {
       break;
     case 'page-profile':
       setDynamicTitle('My Profile');
+      break;
+    case 'page-checkout':
+      initCheckoutPage();
       break;
   }
 }
