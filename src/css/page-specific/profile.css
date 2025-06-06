@@ -1,0 +1,212 @@
+/* Styles for /pages/profile.html */
+
+.profile-container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  /* Padding untuk mobile */
+}
+
+/* Perbaikan untuk mengurangi jarak dari header */
+.profile-container .page-heading {
+  text-align: left;
+  margin-top: 0;
+}
+
+.profile-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Sidebar */
+.profile-sidebar {
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.375rem;
+  flex-shrink: 0;
+}
+
+.sidebar__user-info {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.sidebar__user-avatar {
+  border-radius: 9999px;
+  width: 3rem;
+  height: 3rem;
+  object-fit: cover;
+}
+
+.sidebar__user-text {
+  font-size: 0.875rem;
+  line-height: 1.25;
+}
+
+.sidebar__user-name {
+  font-weight: 600;
+}
+
+.sidebar__nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar__nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 0.875rem;
+}
+
+.sidebar__nav-link:last-child {
+  border-bottom: none;
+}
+
+.sidebar__nav-link:hover {
+  background-color: #f9fafb;
+}
+
+.sidebar__nav-link i {
+  font-size: 1.125rem;
+  width: 1.25rem;
+  text-align: center;
+}
+
+/* Content Area */
+.profile-content {
+  flex-grow: 1;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.375rem;
+}
+
+.profile-content__header {
+  border-bottom: 1px solid #d1d5db;
+  padding: 1rem 1.5rem;
+  font-size: 1.125rem;
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 2rem;
+  padding: 1.5rem;
+}
+
+.form__picture-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.form__profile-picture {
+  border-radius: 9999px;
+  width: 10rem;
+  height: 10rem;
+  object-fit: cover;
+}
+
+.btn-upload {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.btn-upload:hover {
+  text-decoration: underline;
+}
+
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.form-input {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 0.25rem;
+  padding: 0.75rem;
+}
+
+.form-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 1px #9ca3af;
+  border-color: #9ca3af;
+}
+
+/* === PERBAIKAN FINAL UNTUK TOMBOL SUBMIT === */
+.profile-form__submit {
+  background-color: #d1d5db;
+  /* Latar abu-abu terang seperti awal */
+  color: #374151;
+  /* Teks gelap agar kontras dan terlihat */
+  border-radius: 9999px;
+  /* Tombol bulat penuh */
+  padding: 0.75rem 1rem;
+  /* Padding vertikal & horizontal */
+  width: 100%;
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: center;
+  border: none;
+  /* Hilangkan border dari class .btn global */
+  transition: background-color 0.2s;
+}
+
+.profile-form__submit:hover {
+  background-color: #9ca3af;
+}
+
+/* === AKHIR PERBAIKAN FINAL === */
+
+
+/* Aturan untuk Layar Desktop */
+@media (min-width: 768px) {
+  .profile-container {
+    padding: 2rem 1.5rem;
+  }
+
+  .profile-layout {
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  .profile-sidebar {
+    width: 16rem;
+  }
+
+  .profile-content {
+    margin-top: 0;
+  }
+
+  .profile-form {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 3rem;
+    padding: 2rem;
+  }
+
+  .form-fields {
+    max-width: 20rem;
+  }
+}

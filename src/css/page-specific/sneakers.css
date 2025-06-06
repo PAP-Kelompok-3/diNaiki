@@ -1,0 +1,346 @@
+/* Styles for /pages/sneakers.html - Final Polished Version with Mobile UX */
+
+/* --- Container Utama Halaman --- */
+#page-sneakers .page-container {
+  padding: 1.5rem 1rem;
+  max-width: 1400px;
+}
+
+@media (min-width: 768px) {
+  #page-sneakers .page-container {
+    padding: 2rem 1.5rem 4rem;
+  }
+}
+
+.page-heading {
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .page-heading {
+    margin-bottom: 2rem;
+  }
+}
+
+
+/* --- Main Layout (Sidebar + Grid) --- */
+.sneakers-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .sneakers-layout {
+    grid-template-columns: 240px 1fr;
+    gap: 2.5rem;
+  }
+}
+
+/* --- Filter Sidebar & Off-Canvas Mobile --- */
+.filter-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  max-width: 85%;
+  height: 100vh;
+  background-color: #ffffff;
+  padding: 1.5rem;
+  z-index: 1001;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  overflow-y: auto;
+}
+
+.filter-sidebar--is-open {
+  transform: translateX(0);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+}
+
+@media (min-width: 768px) {
+  .filter-sidebar {
+    position: static;
+    width: auto;
+    height: auto;
+    transform: none;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    box-shadow: none;
+    padding: 1.5rem;
+  }
+}
+
+.filter-sidebar__close-btn {
+  position: absolute;
+  top: 0.75rem;
+  right: 1rem;
+  font-size: 1.75rem;
+  background: none;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .filter-sidebar__close-btn {
+    display: none;
+  }
+}
+
+.filter-group {
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.filter-group:last-of-type {
+  border-bottom: none;
+}
+
+.filter-group__title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.filter-group__options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.price-range-option {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  padding: 0.75rem;
+  text-align: left;
+  font-weight: 500;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.price-range-option:hover {
+  border-color: #374151;
+  background-color: #f9fafb;
+}
+
+.price-range-option.active {
+  background-color: #1f2937;
+  color: #ffffff;
+  border-color: #1f2937;
+}
+
+#reset-filter-btn {
+  margin-top: 1.5rem;
+}
+
+/* Overlay untuk background gelap saat filter terbuka */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.overlay--is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* --- Product Toolbar & Tombol Filter --- */
+.product-toolbar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+@media (min-width: 500px) {
+  .product-toolbar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+#filter-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  font-weight: 500;
+}
+
+@media (min-width: 768px) {
+  #filter-toggle-btn {
+    display: none;
+  }
+}
+
+.product-count {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.product-sort {
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  padding: 0.5rem;
+  background-color: #ffffff;
+  width: 100%;
+}
+
+@media (min-width: 500px) {
+  .product-sort {
+    width: auto;
+  }
+}
+
+/* --- Enhanced Product Card Styles --- */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 992px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .product-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+.product-card {
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  border: 1px solid #f3f4f6;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.product-card__image-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+}
+
+.product-card__image {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.product-card:hover .product-card__image {
+  transform: scale(1.05);
+}
+
+.product-card__content {
+  padding: 1rem;
+}
+
+.product-card__name {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.product-card__price {
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+.product-card__rating {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.product-card__rating .fa-star.filled {
+  color: #f59e0b;
+}
+
+.product-card__action {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.product-card:hover .product-card__action {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Pagination Responsif --- */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+
+.pagination__link {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.25rem;
+  color: #374151;
+  background-color: #ffffff;
+  min-width: 40px;
+  text-align: center;
+}
+
+.pagination__link:hover {
+  border-color: #d1d5db;
+  background-color: #f9fafb;
+}
+
+.pagination__link.current {
+  background-color: #1f2937;
+  color: #ffffff;
+  border-color: #1f2937;
+}
+
+.pagination__mobile-info {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .pagination__link.number {
+    display: none;
+  }
+
+  .pagination__mobile-info {
+    display: block;
+    font-weight: 500;
+    color: #4b5563;
+  }
+}

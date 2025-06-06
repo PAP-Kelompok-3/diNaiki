@@ -1,0 +1,255 @@
+/* Styles for /pages/about.html - Polished Version */
+
+/* Mengatur lebar maksimum konten utama di halaman ini */
+.page-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* --- 1. Intro Section --- */
+.about-intro {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.about-intro .page-heading {
+  margin-bottom: 0.5rem;
+}
+
+.about-intro__subtitle {
+  font-size: 1.125rem;
+  color: #6b7280;
+  margin-bottom: 2rem;
+}
+
+.about-intro__image {
+  width: 100%;
+  /* TAMBAHKAN BARIS INI: Batasi lebar maksimal gambar di 700px */
+  max-width: 700px;
+
+  /* TAMBAHKAN BARIS INI: Untuk memastikan gambar selalu di tengah */
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* --- 2. Brand Story Section --- */
+.brand-story {
+  max-width: 750px;
+  margin: 0 auto 4rem;
+  text-align: center;
+}
+
+.brand-story__heading {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.brand-story p {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: #374151;
+}
+
+/* --- 3. Team Section --- */
+.team-section {
+  /* Memberi jeda visual dengan background berbeda */
+  background-color: #f9fafb;
+  padding: 4rem 0;
+  margin: 4rem 0;
+  border-radius: 0.5rem;
+}
+
+.team-section__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.team-section__container .section-heading {
+  margin-bottom: 2rem;
+}
+
+.team-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 768px) {
+  .team-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.team-card {
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.team-card img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+.team-card__info {
+  padding: 1rem;
+}
+
+.team-card__name {
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.team-card__role {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+/* --- 4. Testimonial Section --- */
+.testimonial-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 4rem;
+}
+
+.testimonial-card {
+  max-width: 700px;
+  text-align: center;
+  position: relative;
+  padding: 2rem;
+}
+
+/* Menambahkan ikon kutipan besar sebagai hiasan */
+.testimonial-card::before {
+  content: '\f10d';
+  /* Font Awesome quote-left icon */
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  font-size: 3rem;
+  color: #e5e7eb;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.testimonial-card blockquote {
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.testimonial-card__author {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.testimonial-card__avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+}
+
+.testimonial-card__author cite {
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* --- Aturan Responsif untuk Layar Mobile & Tablet --- */
+@media (max-width: 768px) {
+
+  /* Mengurangi padding utama halaman */
+  .page-container {
+    padding: 1.5rem;
+  }
+
+  /* --- 1. Intro Section --- */
+  .about-intro {
+    margin-bottom: 3rem;
+  }
+
+  .about-intro .page-heading {
+    font-size: 1.75rem;
+    /* Ukuran judul utama dikecilkan */
+  }
+
+  .about-intro__subtitle {
+    font-size: 1rem;
+  }
+
+  /* --- 2. Brand Story Section --- */
+  .brand-story {
+    margin-bottom: 3rem;
+  }
+
+  .brand-story__heading {
+    font-size: 1.5rem;
+    /* Ukuran judul dikecilkan */
+  }
+
+  .brand-story p {
+    font-size: 1rem;
+    /* Ukuran paragraf disesuaikan */
+  }
+
+  /* --- 3. Team Section --- */
+  .team-section {
+    padding: 3rem 0;
+    /* Padding vertikal dikurangi */
+    margin: 3rem 0;
+  }
+
+  .team-section__container .section-heading {
+    font-size: 1.5rem;
+  }
+
+  .team-grid {
+    /* Grid tim menjadi 2 kolom di tablet, dan 1 kolom di HP */
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* --- 4. Testimonial Section --- */
+  .testimonial-section {
+    padding-bottom: 3rem;
+  }
+
+  .testimonial-section .section-heading {
+    font-size: 1.5rem;
+  }
+
+  .testimonial-card::before {
+    font-size: 2.5rem;
+    /* Ikon kutipan dikecilkan */
+  }
+
+  .testimonial-card blockquote {
+    font-size: 1.125rem;
+    /* Ukuran teks kutipan dikecilkan */
+  }
+}
+
+/* Aturan khusus untuk layar HP yang lebih kecil */
+@media (max-width: 480px) {
+  .team-grid {
+    /* Di HP, grid tim menjadi 1 kolom agar tidak sempit */
+    grid-template-columns: 1fr;
+  }
+}

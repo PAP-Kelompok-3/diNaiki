@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>diNaiki</title>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+
+  <link href="../src/css/style.css" rel="stylesheet" />
+  <link href="../src/css/page-specific/profile.css" rel="stylesheet" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="../src/favicon/favicon.svg" />
+  <link rel="icon" type="image/png" href="../src/favicon/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="../src/favicon/favicon-16x16.png" sizes="16x16" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../src/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="../src/favicon/site.webmanifest">
+  <link rel="mask-icon" href="../src/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="apple-mobile-web-app-title" content="diNaiki" />
+  <meta name="application-name" content="diNaiki" />
+
+  <script type="module" src="../src/js/main.js"></script>
+</head>
+<body id="page-profile">
+  <div id="header-placeholder"></div>
+  <main class="profile-container">
+    <h1 class="page-heading">Profile</h1>
+    <div class="profile-layout">
+      <aside class="profile-sidebar">
+        <div class="sidebar__user-info">
+          <img loading="lazy" class="sidebar__user-avatar"
+            src="https://storage.googleapis.com/a1aa/image/355a0cbe-9878-41e4-4188-ecc42fa6dc21.jpg"
+            alt="User Avatar" />
+          <div class="sidebar__user-text">
+            <p>Hello</p>
+            <p class="sidebar__user-name">John Doe</p>
+          </div>
+        </div>
+        <nav class="sidebar__nav">
+          <a class="sidebar__nav-link" href="#"><i class="fas fa-box-open"></i><span>My Orders</span></a>
+          <a class="sidebar__nav-link" href="#"><i class="fas fa-ban"></i><span>Returns & Cancel</span></a>
+          <a class="sidebar__nav-link" href="#"><i class="far fa-heart"></i><span>My Wishlist</span></a>
+          <a class="sidebar__nav-link" href="#"><i class="fas fa-sign-out-alt"></i><span>Log Out</span></a>
+        </nav>
+      </aside>
+      <section class="profile-content">
+        <header class="profile-content__header">
+          <h3>Personal Information</h3>
+        </header>
+        <form class="profile-form">
+          <div class="form__picture-upload">
+            <img loading="lazy" class="form__profile-picture"
+              src="https://storage.googleapis.com/a1aa/image/355a0cbe-9878-41e4-4188-ecc42fa6dc21.jpg"
+              alt="Profile Picture" />
+            <button class="btn-upload" type="button">Upload new Picture</button>
+          </div>
+          <div class="form-fields">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input class="form-input" id="firstName" type="text" value="John" />
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input class="form-input" id="lastName" type="text" value="Doe" />
+            </div>
+            <div class="form-group">
+              <label for="dob">Date of Birth</label>
+              <input class="form-input" id="dob" type="text" value="01/01/1990" />
+            </div>
+            <button class="profile-form__submit" type="submit">Submit</button>
+          </div>
+        </form>
+      </section>
+    </div>
+  </main>
+  <div id="footer-placeholder"></div>
+</body>
+</html>

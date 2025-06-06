@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>diNaiki</title>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+
+  <link href="../src/css/style.css" rel="stylesheet" />
+  <link href="../src/css/page-specific/sneakers.css" rel="stylesheet" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="../src/favicon/favicon.svg" />
+  <link rel="icon" type="image/png" href="../src/favicon/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="../src/favicon/favicon-16x16.png" sizes="16x16" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../src/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="../src/favicon/site.webmanifest">
+  <link rel="mask-icon" href="../src/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="apple-mobile-web-app-title" content="diNaiki" />
+  <meta name="application-name" content="diNaiki" />
+
+  <script type="module" src="../src/js/main.js"></script>
+</head>
+<body id="page-sneakers">
+  <div id="header-placeholder"></div>
+
+  <main class="page-container">
+    <h1 class="page-heading">Our Sneakers Collection</h1>
+
+    <div class="sneakers-layout">
+      <aside class="filter-sidebar">
+        <div class="filter-group">
+          <h3 class="filter-group__title">Rentang Harga</h3>
+          <div class="filter-group__options">
+            <button class="price-range-option" type="button" data-min="0" data-max="499999">Di bawah Rp 500rb</button>
+            <button class="price-range-option" type="button" data-min="500000" data-max="1000000">Rp 500rb - Rp
+              1jt</button>
+            <button class="price-range-option" type="button" data-min="1000001" data-max="9999999">Di atas Rp
+              1jt</button>
+          </div>
+        </div>
+        <button class="btn btn--white" id="reset-filter-btn" type="button" style="width: 100%;">Hapus Filter</button>
+      </aside>
+
+      <div class="product-listing">
+        <div class="product-toolbar">
+          <button type="button" class="btn btn--outline" id="filter-toggle-btn">
+            <i class="fas fa-filter"></i>
+            <span>Filter</span>
+          </button>
+          <p class="product-count">Menampilkan produk...</p>
+          <select class="product-sort" aria-label="Urutkan produk">
+            <option value="sales">Urutkan: Terlaris</option>
+            <option value="rating">Urutkan: Rating Tertinggi</option>
+            <option value="price_desc">Urutkan: Harga Tertinggi</option>
+            <option value="price_asc">Urutkan: Harga Terendah</option>
+          </select>
+        </div>
+
+        <section class="product-grid" id="product-grid">
+          <p class="loading-message">Memuat semua sneakers...</p>
+        </section>
+
+        <nav class="pagination" aria-label="Page navigation"></nav>
+      </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+</body>
+</html>
