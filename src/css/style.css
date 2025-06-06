@@ -1,0 +1,607 @@
+/* --- Global Resets & Defaults --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #ffffff;
+  color: #000000;
+  line-height: 1.5;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+input {
+  font-family: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --- Utility & Shared Components --- */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.page-heading {
+  font-weight: 600;
+  font-size: 20px;
+  text-align: center;
+  margin: 40px 0 24px;
+}
+
+.section-title {
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.error-message {
+  text-align: center;
+  color: red;
+  padding: 2rem;
+}
+
+.hero-image {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 48px;
+  object-fit: cover;
+}
+
+/* --- Buttons --- */
+.btn {
+  font-weight: 600;
+  font-size: 12px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 1px solid #000;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.btn--black {
+  background-color: #000;
+  color: #fff;
+}
+
+.btn--black:hover {
+  background-color: #333;
+}
+
+.btn--white {
+  background-color: #fff;
+  color: #000;
+}
+
+.btn--white:hover {
+  background-color: #f0f0f0;
+}
+
+/* --- Header --- */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.site-header__logo-link {
+  line-height: 0;
+  /* Menghindari spasi ekstra di sekitar logo */
+}
+
+.nav-logo-img {
+  height: 35px;
+}
+
+.main-nav {
+  display: none;
+  /* Sembunyi di mobile, tampil di desktop */
+  gap: 3rem;
+}
+
+.main-nav a {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.main-nav a:hover {
+  text-decoration: underline;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* === BAGIAN YANG DIPERBAIKI === */
+/* Menggunakan satu class untuk semua ikon agar ukurannya konsisten */
+.header-actions__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  /* Menentukan ukuran ikon */
+  color: #374151;
+  transition: color 0.2s ease-in-out;
+
+  /* Reset properti yang mungkin menyebabkan inkonsistensi */
+  padding: 0;
+  background-color: transparent;
+  border: none;
+}
+
+.header-actions__link:hover {
+  color: #000000;
+}
+
+/* === AKHIR BAGIAN PERBAIKAN === */
+
+
+/* Aturan untuk layar desktop */
+@media (min-width: 768px) {
+  .main-nav {
+    display: flex;
+  }
+}
+
+/* --- Footer --- */
+.site-footer {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.footer-layout {
+  display: flex;
+  flex-direction: column;
+  /* Mobile-first: kolom menumpuk ke bawah */
+  gap: 2.5rem;
+  /* Jarak antar kolom saat di mobile */
+  color: #4b5563;
+  font-size: 0.875rem;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Perbaikan Definitif untuk Posisi Logo */
+.footer-logo {
+  align-self: flex-start;
+  /* Memaksa logo untuk rata kiri atas (tidak center secara vertikal) */
+  width: auto;
+  /* Memastikan lebar logo tidak stretch */
+}
+
+.footer-column--info {
+  /* Tidak ada 'gap' di sini agar jarak bisa diatur manual oleh elemen anak */
+}
+
+/* Spasi manual untuk elemen di dalam kolom info */
+.footer-description {
+  margin-top: 1rem;
+  /* Jarak antara logo dan deskripsi */
+}
+
+.footer-contact-item {
+  margin-top: 0.75rem;
+  /* Jarak antar item kontak */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Judul setiap kolom footer */
+.footer-column__title {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #000;
+  margin-bottom: 0.75rem;
+}
+
+/* Navigasi di dalam footer */
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-nav a:hover {
+  text-decoration: underline;
+}
+
+/* Form "Stay Updated" */
+.subscribe-form {
+  display: flex;
+  /* Membuat input dan tombol sejajar */
+}
+
+.subscribe-form__input {
+  padding: 0.5rem 1rem;
+  width: 100%;
+  background-color: #e5e7eb;
+  border: none;
+  border-radius: 0.25rem 0 0 0.25rem;
+  /* Sudut tumpul hanya di kiri */
+}
+
+.subscribe-form__input:focus {
+  outline: none;
+}
+
+.subscribe-form__button {
+  background-color: #9ca3af;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  border-radius: 0 0.25rem 0.25rem 0;
+  /* Sudut tumpul hanya di kanan */
+}
+
+
+/* Aturan Responsif untuk Layar Desktop */
+@media (min-width: 768px) {
+  .footer-layout {
+    flex-direction: row;
+    /* Kolom menjadi sejajar */
+    justify-content: flex-start;
+    /* Kolom tidak menyebar, tapi mulai dari kiri */
+    gap: 5rem;
+    /* Mengatur jarak antar kolom seperti tampilan awal */
+  }
+
+  .footer-column--info {
+    max-width: 16rem;
+    flex-shrink: 0;
+    /* Mencegah kolom info menyusut */
+  }
+}
+
+/* --- Homepage Specific (Final Polished Version) --- */
+#page-home .section-container--no-vertical-padding {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+#page-home {
+  /* -- CSS Variables untuk Konsistensi -- */
+  /* REFINEMENT: Mendefinisikan spasi dan font di satu tempat */
+  --spacing-section: 4.5rem;
+  /* Jarak vertikal antar section */
+  --spacing-heading-bottom: 2.5rem;
+  /* Jarak di bawah judul section */
+  --font-hero-title: clamp(2.5rem, 5vw, 3.5rem);
+  /* Ukuran font responsif */
+  --font-section-heading: clamp(1.5rem, 4vw, 2rem);
+  /* Ukuran font responsif */
+}
+
+/* --- Penataan Ulang Global untuk Home --- */
+#page-home main {
+  width: 100%;
+}
+
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  /* REFINEMENT: Menggunakan variabel untuk padding atas-bawah yang konsisten */
+  padding: var(--spacing-section) 1.5rem;
+}
+
+.section-heading {
+  font-size: var(--font-section-heading);
+  /* REFINEMENT: Ukuran judul lebih besar & konsisten */
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: var(--spacing-heading-bottom);
+  /* REFINEMENT: Jarak bawah judul konsisten */
+}
+
+/* --- 1. Hero Section --- */
+.hero-section-legacy {
+  padding-top: 1.5rem;
+  text-align: center;
+  /* DIHAPUS: padding di sini sudah diatur oleh .section-container */
+  /* padding: 2rem 1.5rem 3rem; */
+}
+
+.hero-section-legacy__title {
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero-section-legacy__image {
+  max-width: 100%;
+  margin: 0 auto;
+  border-radius: 0.5rem;
+}
+
+/* --- 2. Marquee Style Baru (Seamless & Dua Arah) --- */
+.marquee-banner {
+  overflow: hidden;
+  background-color: transparent;
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.marquee-banner__content {
+  /* Menggunakan flex agar duplikasi konten bekerja dengan baik */
+  display: flex;
+  width: fit-content;
+  /* Lebar sesuai konten di dalamnya */
+  white-space: nowrap;
+}
+
+/* Menerapkan animasi yang sesuai berdasarkan class modifier */
+.marquee-banner--to-left .marquee-banner__content {
+  animation: marquee-left 30s linear infinite;
+}
+
+.marquee-banner--to-right .marquee-banner__content {
+  animation: marquee-right 30s linear infinite;
+}
+
+.marquee-banner__content span {
+  display: inline-block;
+  margin: 0 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #1f2937;
+}
+
+
+/* Keyframes untuk animasi seamless */
+
+/* Animasi untuk bergerak ke kiri */
+@keyframes marquee-left {
+  from {
+    transform: translateX(0%);
+  }
+
+  to {
+    /* Bergerak sejauh 50% dari total lebar (karena konten diduplikasi) */
+    transform: translateX(-50%);
+  }
+}
+
+/* Animasi untuk bergerak ke kanan */
+@keyframes marquee-right {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0%);
+  }
+}
+
+/* --- 3. Section 'New Arrival' --- */
+
+.new-arrival-legacy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding-bottom: 2.5rem;
+}
+
+.new-arrival-legacy__image {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 0.5rem;
+}
+
+.new-arrival-legacy__content {
+  text-align: center;
+  max-width: 500px;
+}
+
+.new-arrival-legacy__content .section-heading {
+  margin-bottom: 0.5rem;
+  /* REFINEMENT: Jarak ke harga lebih dekat */
+}
+
+.new-arrival-legacy__price {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 0.5rem 0 1rem;
+}
+
+.new-arrival-legacy__description {
+  color: #4b5563;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+/* Class untuk memotong teks */
+.description--truncated {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (min-width: 768px) {
+  .new-arrival-legacy {
+    flex-direction: row;
+    gap: 4rem;
+  }
+
+  .new-arrival-legacy__content {
+    text-align: left;
+  }
+
+  .new-arrival-legacy__content .section-heading {
+    text-align: left;
+    /* REFINEMENT: Judul rata kiri di desktop */
+  }
+}
+
+/* 4. Collection Banner Style Baru (Final) */
+.collection-banner {
+  /* DIHAPUS: max-width dan margin auto dihapus dari sini */
+  /* DIUBAH: Lebar 100% dari parent-nya (.section-container) */
+  width: 100%;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  color: white;
+  border-radius: 0.5rem;
+  /* Sudut tumpul agar rapi */
+  overflow: hidden;
+}
+
+/* Efek zoom tetap dipertahankan */
+.collection-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: inherit;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.4s ease;
+  z-index: 0;
+}
+
+.collection-banner:hover::before {
+  transform: scale(1.05);
+}
+
+.collection-banner__overlay {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.collection-banner .collection-banner__content-wrapper {
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+  margin-top: auto;
+  text-align: left;
+}
+
+.collection-banner__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.collection-banner p {
+  font-size: 1.125rem;
+  margin: 0.5rem 0 1.5rem;
+  max-width: 450px;
+}
+
+/* --- 5. Featured Sneakers Section --- */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+/* REFINEMENT: Tampilan kartu produk lebih rapi */
+.product-card {
+  border: 1px solid #f3f4f6;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: box-shadow 0.2s, transform 0.2s;
+  text-align: center;
+  /* Teks di tengah */
+  background-color: #ffffff;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+}
+
+/* REFINEMENT: Wrapper untuk konten kartu */
+.product-card__content {
+  padding: 1rem;
+}
+
+.product-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.product-card .product-price {
+  font-size: 0.875rem;
+  color: #4b5563;
+  margin-top: 0.25rem;
+}
+
+.section__more-link-container {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* --- 6. About Us Snippet --- */
+.about-snippet {
+  background-color: #f9fafb;
+  text-align: center;
+}
+
+.about-snippet__text {
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  line-height: 1.7;
+  color: #374151;
+}
+
+/* Animasi Marquee */
+@keyframes marquee {
+  from {
+    transform: translateX(0%);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}

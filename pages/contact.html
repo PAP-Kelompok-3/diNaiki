@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>diNaiki</title>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+
+  <link href="../src/css/style.css" rel="stylesheet" />
+  <link href="../src/css/page-specific/contact.css" rel="stylesheet" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="../src/favicon/favicon.svg" />
+  <link rel="icon" type="image/png" href="../src/favicon/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="../src/favicon/favicon-16x16.png" sizes="16x16" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../src/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="../src/favicon/site.webmanifest">
+  <link rel="mask-icon" href="../src/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="apple-mobile-web-app-title" content="diNaiki" />
+  <meta name="application-name" content="diNaiki" />
+
+  <script type="module" src="../src/js/main.js"></script>
+</head>
+<body id="page-contact">
+  <div id="header-placeholder"></div>
+
+  <main class="page-container">
+    <h1 class="page-heading">Contact Us</h1>
+    <div class="contact-layout">
+      <section class="contact-panel">
+        <h2 class="contact-panel__title">Informasi Kontak</h2>
+        <p class="contact-panel__desc">
+          Tim kami siap membantu Anda. Silakan hubungi kami melalui detail di bawah ini.
+        </p>
+        <div class="contact-panel__details">
+          <div class="detail-item"><i class="fas fa-phone-alt"></i><span>+62 812-345-678-90</span></div>
+          <div class="detail-item"><i class="fas fa-envelope"></i><span>support@dinaiki.co.id</span></div>
+          <div class="detail-item"><i class="fas fa-map-marker-alt"></i><span>Sukun, Malang, Indonesia</span></div>
+        </div>
+      </section>
+
+      <section class="contact-panel">
+        <form class="contact-form" novalidate>
+          <h2 class="contact-panel__title">Kirim Pesan</h2>
+          <div class="form-row">
+            <div class="form-group"><label for="firstName">Nama Depan</label><input class="form-input" id="firstName"
+                type="text" required /></div>
+            <div class="form-group"><label for="lastName">Nama Belakang</label><input class="form-input" id="lastName"
+                type="text" required /></div>
+          </div>
+          <div class="form-group"><label for="email">Email</label><input class="form-input" id="email" type="email"
+              required /></div>
+          <div class="form-group"><label for="message">Pesan</label><textarea class="form-textarea" id="message"
+              rows="5" required></textarea></div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn--submit">
+              Kirim Pesan
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </div>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+</body>
+</html>

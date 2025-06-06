@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>diNaiki</title>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+
+  <link href="../src/css/style.css" rel="stylesheet" />
+  <link href="../src/css/page-specific/detail-product.css" rel="stylesheet" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="../src/favicon/favicon.svg" />
+  <link rel="icon" type="image/png" href="../src/favicon/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="../src/favicon/favicon-16x16.png" sizes="16x16" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../src/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="../src/favicon/site.webmanifest">
+  <link rel="mask-icon" href="../src/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="apple-mobile-web-app-title" content="diNaiki" />
+  <meta name="application-name" content="diNaiki" />
+
+  <script type="module" src="../src/js/main.js"></script>
+</head>
+<body id="page-detail-product">
+  <div id="header-placeholder"></div>
+  <main class="product-detail-container">
+    <div class="product-gallery">
+      <img loading="lazy" id="main-image" class="product-gallery__main-image" alt="Gambar produk utama" />
+      <div class="product-gallery__thumbnails-container">
+        <button id="thumb-prev" class="product-gallery__arrow" aria-label="Previous image"><i
+            class="fas fa-chevron-left"></i></button>
+        <div class="product-gallery__thumbnails" id="thumbnails"></div>
+        <button id="thumb-next" class="product-gallery__arrow" aria-label="Next image"><i
+            class="fas fa-chevron-right"></i></button>
+      </div>
+    </div>
+    <section class="product-info">
+      <h1 id="product-title" class="product-info__title">Nama Produk</h1>
+      <div class="product-info__meta">
+        <p id="product-price" class="product-info__price">Rp 0</p>
+        <div class="product-info__rating">
+          <span id="sold-count">0 terjual</span><span>·</span><span id="rating-value">0.0</span><i
+            class="fas fa-star"></i>
+        </div>
+      </div>
+      <hr />
+      <div>
+        <h2 class="section-title">Deskripsi</h2>
+        <p id="product-description" class="product-info__description">Deskripsi produk akan muncul di sini.</p>
+      </div>
+      <div>
+        <h3 class="section-title">Ukuran</h3>
+        <div class="product-info__sizes" id="sizes-container"></div>
+        <input type="hidden" id="selectedSize" name="size" />
+      </div>
+      <div class="product-info__actions">
+        <button class="btn btn--black" id="btn-add" type="button">Add to cart</button>
+        <button class="btn btn--white" id="btn-buy" type="button">Buy it now</button>
+      </div>
+    </section>
+  </main>
+  <div id="footer-placeholder"></div>
+</body>
+</html>

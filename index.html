@@ -1,21 +1,17 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="id">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>diNaiki</title>
 
-  <!-- External Libraries -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
 
-  <!-- App Stylesheets -->
-  <!-- Pastikan path ini sesuai dengan struktur folder Anda -->
-  <link href="src/css/styles.css" rel="stylesheet" />
-  <link rel="stylesheet" href="src/css/header-footer.css" />
+  <link href="src/css/style.css" rel="stylesheet" />
 
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="src/favicon/favicon.svg" />
@@ -29,79 +25,87 @@
   <meta name="apple-mobile-web-app-title" content="diNaiki" />
   <meta name="application-name" content="diNaiki" />
 
+  <script type="module" src="src/js/main.js"></script>
 </head>
-<body>
-  <!-- Navbar -->
+<body id="page-home">
   <div id="header-placeholder"></div>
 
   <main>
-    <h1 class="about-title">diNaiki in a good way.</h1>
-    <img loading="lazy" src="src/img/banner.svg" class="hero-image" />
+    <section class="hero-section-legacy section-container">
+      <h1 class="hero-section-legacy__title">diNaiki in a good way.</h1>
+      <img loading="lazy" src="src/img/banner.svg" class="hero-section-legacy__image" alt="diNaiki Banner" />
+    </section>
 
-    <div class="marquee-container" aria-hidden="true">
-      <p class="marquee-text">
-        NEW ARRIVAL! NEW ARRIVAL! NEW ARRIVAL! NEW ARRIVAL! NEW ARRIVAL! NEW
-        ARRIVAL! NEW ARRIVAL! NEW ARRIVAL! NEW ARRIVAL! NEW ARRIVAL! NEW
-        ARRIVAL! NEW ARRIVAL! NEW ARRIVAL! NEW ARRIVAL! NEW ARRIVAL! NEW
-        ARRIVAL! NEW ARRIVAL! NEW ARRIVAL! NEW ARRIVAL! NEW ARRIVAL!
-      </p>
-    </div>
-
-    <section class="new-arrival-section container" aria-label="New Arrival Product">
-      <img loading="lazy" id="new-image" class="new-arrival-image" />
-      <div class="new-arrival-content">
-        <h2 id="new-name">diNaiki</h2>
-        <p class="price" id="new-price">Rp x.xxx.xxx,xx</p>
-        <p class="description" id="new-desc">diNaiki</p>
-        <div>
-          <a href="#" id="new-addcart">
-            <button class="btn-black" type="button">Add to cart</button>
-          </a>
-          <a href="#" id="new-detail-link">
-            <button class="btn-white" type="button">Buy it now</button>
-          </a>
+    <section class="section-container section-container--no-vertical-padding">
+      <div class="marquee-banner marquee-banner--to-left" aria-hidden="true">
+        <div class="marquee-banner__content">
+          <span>NEW ARRIVAL!</span><span>NEW ARRIVAL!</span><span>NEW ARRIVAL!</span><span>NEW ARRIVAL!</span><span>NEW
+            ARRIVAL!</span><span>NEW ARRIVAL!</span><span>NEW ARRIVAL!</span><span>NEW ARRIVAL!</span><span>NEW
+            ARRIVAL!</span><span>NEW ARRIVAL!</span><span>NEW ARRIVAL!</span><span>NEW ARRIVAL!</span><span>NEW
+            ARRIVAL!</span><span>NEW ARRIVAL!</span><span>NEW ARRIVAL!</span><span>NEW ARRIVAL!</span>
         </div>
       </div>
     </section>
 
-    <div class="marquee-container" aria-hidden="true">
-      <p class="marquee-text-reverse">
-        NEW ARRIVAL! NEW ARRIVAL! NEW ARRIVAL! NEW ARRIVAL! NEW ARRIVAL! NEW
-        ARRIVAL! NEW ARRIVAL! NEW ARRIVAL! NEW ARRIVAL! NEW ARRIVAL! NEW
-        ARRIVAL! NEW ARRIVAL! NEW ARRIVAL! NEW ARRIVAL! NEW ARRIVAL! NEW
-        ARRIVAL! NEW ARRIVAL! NEW ARRIVAL! NEW ARRIVAL! NEW ARRIVAL!
-      </p>
-    </div>
+    <section class="section-container" id="new-arrival-container">
+      <div class="new-arrival-legacy">
+        <img loading="lazy" id="new-image" class="new-arrival-legacy__image" alt="New Arrival Product Image" />
+        <div class="new-arrival-legacy__content">
+          <h2 class="section-heading" id="new-name">Loading...</h2>
+          <p class="new-arrival-legacy__price" id="new-price">Rp 0</p>
 
-    <section class="collection-section" aria-label="Our Collection">
-      <h3 class="collection-title">OUR COLLECTION</h3>
-      <img loading="lazy" src="src/img/collection.svg" class="collection-image" />
-    </section>
+          <p class="new-arrival-legacy__description description--truncated" id="new-desc">Loading description...</p>
 
-    <section class="sneakers-section" aria-label="Sneakers">
-      <h4 class="sneakers-title">SNEAKERS</h4>
-      <div class="sneakers-grid" id="sneaker-container">
-      </div>
-      <div class="show-more-container">
-        <a href="pages/sneakers" class="btn-more">Show More</a>
+          <div>
+            <a href="#" id="new-detail-link" class="btn btn--black">Lihat Detail</a>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="large-text-section">
-      <h1>Lorem Ipsum Dolor sit Amet</h1>
-      <p>
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum."
+    <section class="section-container section-container--no-vertical-padding">
+      <div class="marquee-banner marquee-banner--to-right" aria-hidden="true">
+        <div class="marquee-banner__content">
+          <span>NEW ARRIVAL!</span><span>NEW ARRIVAL!</span><span>NEW ARRIVAL!</span><span>NEW ARRIVAL!</span><span>NEW
+            ARRIVAL!</span><span>NEW ARRIVAL!</span><span>NEW ARRIVAL!</span><span>NEW ARRIVAL!</span><span>NEW
+            ARRIVAL!</span><span>NEW ARRIVAL!</span><span>NEW ARRIVAL!</span><span>NEW ARRIVAL!</span><span>NEW
+            ARRIVAL!</span><span>NEW ARRIVAL!</span><span>NEW ARRIVAL!</span><span>NEW ARRIVAL!</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-container">
+      <div class="collection-banner" style="background-image: url('src/img/collection.svg');">
+        <div class="collection-banner__overlay"></div>
+        <div class="collection-banner__content-wrapper">
+          <h2 class="collection-banner__title">Our Collection</h2>
+          <p>Gaya dan kenyamanan untuk setiap momen.</p>
+          <a href="pages/sneakers.html" class="btn btn--white">Jelajahi Sekarang</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-container">
+      <h2 class="section-heading">Sneakers Pilihan</h2>
+      <div class="product-grid" id="sneaker-container">
+        <p class="loading-message">Memuat produk...</p>
+      </div>
+      <div class="section__more-link-container">
+        <a href="pages/sneakers.html" class="btn btn--white">Lihat Semua Sneakers</a>
+      </div>
+    </section>
+
+    <section class="section-container about-snippet">
+      <h2 class="section-heading">Tentang diNaiki</h2>
+      <p class="about-snippet__text">
+        Kami percaya sepatu adalah fondasi dari setiap perjalanan. Di diNaiki, kami menggabungkan material premium
+        dengan desain yang tak lekang oleh waktu untuk menciptakan alas kaki yang tidak hanya nyaman, tetapi juga
+        meningkatkan kepercayaan diri Anda. Setiap pasang adalah komitmen kami pada kualitas dan gaya.
       </p>
+      <a href="pages/about.html" class="btn btn--black">Baca Cerita Kami</a>
     </section>
   </main>
-  <!-- Footer -->
+
   <div id="footer-placeholder"></div>
-  <script src="src/js/script.js"></script>
 </body>
 </html>
