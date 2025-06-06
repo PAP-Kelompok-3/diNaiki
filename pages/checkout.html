@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>diNaiki - Checkout</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="../src/css/style.css" rel="stylesheet" />
+  <link href="../src/css/page-specific/checkout.css" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="../src/favicon/favicon.svg" />
+  <script type="module" src="../src/js/main.js"></script>
+</head>
+<body id="page-checkout">
+  <div id="header-placeholder"></div>
+
+  <main class="page-container">
+    <div class="checkout-layout">
+      <section class="checkout-details">
+        <h1 class="page-heading">Checkout</h1>
+        <form class="checkout-form">
+          <div class="form-section">
+            <h2 class="form-section__title">Informasi Kontak</h2>
+            <div class="form-group"><label for="email">Alamat Email</label><input type="email" id="email"
+                class="form-input" placeholder="anda@email.com"></div>
+          </div>
+
+          <div class="form-section">
+            <h2 class="form-section__title">Alamat Pengiriman</h2>
+            <div class="form-group"><label for="fullname">Nama Lengkap</label><input type="text" id="fullname"
+                class="form-input" placeholder="Nama Anda"></div>
+            <div class="form-group"><label for="address">Alamat Lengkap</label><input type="text" id="address"
+                class="form-input" placeholder="Jalan, No. Rumah, RT/RW"></div>
+            <div class="form-row">
+              <div class="form-group"><label for="city">Kota/Kabupaten</label><input type="text" id="city"
+                  class="form-input"></div>
+              <div class="form-group"><label for="postcode">Kode Pos</label><input type="text" id="postcode"
+                  class="form-input"></div>
+            </div>
+            <div class="form-group"><label for="phone">Nomor Telepon</label><input type="tel" id="phone"
+                class="form-input" placeholder="08xxxxxxxxxx"></div>
+          </div>
+
+          <div class="form-section">
+            <h2 class="form-section__title">Metode Pengiriman</h2>
+            <div class="selection-group" id="shipping-options">
+              <label class="selection-option">
+                <input type="radio" name="shipping" value="reguler" data-cost="15000" checked>
+                <div class="selection-option__content">
+                  <h3>Reguler</h3>
+                  <p>Estimasi 2-4 hari kerja</p>
+                </div>
+                <span class="selection-option__price">Rp 15.000</span>
+              </label>
+              <label class="selection-option">
+                <input type="radio" name="shipping" value="express" data-cost="30000">
+                <div class="selection-option__content">
+                  <h3>Express</h3>
+                  <p>Estimasi 1-2 hari kerja</p>
+                </div>
+                <span class="selection-option__price">Rp 30.000</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h2 class="form-section__title">Metode Pembayaran</h2>
+            <div class="selection-group" id="payment-options">
+              <label class="selection-option"><input type="radio" name="payment" value="bca_va" checked><img
+                  src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Bank_Central_Asia_logo.svg" alt="BCA"><span
+                  class="selection-option__name">BCA Virtual Account</span></label>
+              <label class="selection-option"><input type="radio" name="payment" value="gopay"><img
+                  src="https://upload.wikimedia.org/wikipedia/commons/8/86/Gopay_logo.svg" alt="GoPay"><span
+                  class="selection-option__name">GoPay / GoTo</span></label>
+              <label class="selection-option"><input type="radio" name="payment" value="cc"><img
+                  src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Visa_Inc._logo.svg" alt="Credit Card"><span
+                  class="selection-option__name">Kartu Kredit / Debit</span></label>
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <aside class="order-summary">
+        <h2 class="order-summary__title">Ringkasan Pesanan</h2>
+        <div class="order-items" id="order-items">
+          <p>Memuat item...</p>
+        </div>
+        <div class="order-totals">
+          <div class="totals-row"><span>Subtotal</span><span id="summary-subtotal">Rp 0</span></div>
+          <div class="totals-row"><span>Pengiriman</span><span id="summary-shipping">Rp 0</span></div>
+          <div class="totals-row total"><span>Total</span><span id="summary-total">Rp 0</span></div>
+        </div>
+        <button class="btn btn--black" style="width: 100%;">Bayar Sekarang</button>
+      </aside>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+</body>
+</html>

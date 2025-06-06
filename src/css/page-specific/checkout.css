@@ -1,0 +1,276 @@
+/* Styles for /pages/checkout.html - Final Polished Version */
+
+#page-checkout {
+  background-color: #f9fafb;
+}
+
+#page-checkout .page-container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 768px) {
+  #page-checkout .page-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+#page-checkout .page-heading {
+  text-align: left;
+  margin-bottom: 1.5rem;
+  padding: 0;
+}
+
+@media (min-width: 992px) {
+  #page-checkout .page-heading {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+}
+
+/* --- Layout Utama --- */
+.checkout-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+@media (min-width: 992px) {
+  .checkout-layout {
+    grid-template-columns: 1.5fr 1fr;
+  }
+}
+
+/* --- Kolom Kiri: Form --- */
+.checkout-details {
+  padding: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .checkout-details {
+    padding: 2.5rem;
+  }
+}
+
+.form-section {
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.form-section:last-of-type {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.form-section__title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group:last-child {
+  margin-bottom: 0;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-input:focus {
+  border-color: #3b82f6;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 480px) {
+  .form-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* --- Style Pilihan (Untuk Pengiriman & Pembayaran) --- */
+.selection-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.selection-option {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.selection-option:hover {
+  border-color: #9ca3af;
+}
+
+.selection-option.selected {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+}
+
+.selection-option input[type="radio"] {
+  display: none;
+}
+
+.selection-option img {
+  width: 40px;
+  height: auto;
+  margin-right: 1rem;
+}
+
+.selection-option__name {
+  flex-grow: 1;
+  font-weight: 600;
+}
+
+.selection-option__price {
+  font-weight: 600;
+}
+
+.selection-option__content {
+  flex-grow: 1;
+}
+
+.selection-option__content h3 {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.selection-option__content p {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+/* --- Kolom Kanan: Ringkasan Pesanan --- */
+.order-summary {
+  padding: 1.5rem;
+  background-color: #f9fafb;
+}
+
+@media (min-width: 768px) {
+  .order-summary {
+    padding: 2.5rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .order-summary {
+    border-left: 1px solid #e5e7eb;
+  }
+}
+
+.order-summary__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.order-items {
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #d1d5db;
+}
+
+.summary-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.summary-item__image {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 0.375rem;
+  border: 1px solid #e5e7eb;
+}
+
+.summary-item__info {
+  flex: 1;
+}
+
+.summary-item__name {
+  font-weight: 600;
+}
+
+.summary-item__meta {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.summary-item__price {
+  font-weight: 500;
+  text-align: right;
+}
+
+.order-totals {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.totals-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+}
+
+.totals-row span:first-child {
+  color: #4b5563;
+}
+
+.totals-row.total {
+  font-weight: 700;
+  font-size: 1.125rem;
+  margin-top: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #d1d5db;
+}
+
+.totals-row.total span:first-child {
+  color: inherit;
+}
+
+.order-summary .btn--black {
+  width: 100%;
+}
