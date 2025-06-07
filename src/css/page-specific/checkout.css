@@ -274,3 +274,98 @@
 .order-summary .btn--black {
   width: 100%;
 }
+
+/* --- Payment Modal Styles --- */
+.payment-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Default state: tersembunyi */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.payment-modal.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+  position: relative;
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 0.75rem;
+  width: 90%;
+  max-width: 480px;
+  text-align: center;
+  /* Animasi muncul */
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.payment-modal.is-open .modal-content {
+  transform: translateY(0);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 0.75rem;
+  right: 1rem;
+  font-size: 2rem;
+  font-weight: 300;
+  background: none;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+}
+
+.modal-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.modal-body img.qris-image {
+  max-width: 250px;
+  width: 100%;
+  margin: 0 auto 1rem;
+}
+
+.modal-body p {
+  color: #4b5563;
+  margin-bottom: 1.5rem;
+}
+
+.va-details {
+  background-color: #f9fafb;
+  border: 1px dashed #d1d5db;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.va-details .va-number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #1f2937;
+}
+
+.va-details .va-total {
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.modal-footer {
+  margin-top: 1rem;
+}

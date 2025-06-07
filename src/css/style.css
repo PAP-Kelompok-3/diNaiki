@@ -285,6 +285,59 @@ img {
   }
 }
 
+/* --- Custom Toast Notification --- */
+.custom-toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #333;
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  z-index: 9999;
+  transform: translateY(-150%);
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.custom-toast--success {
+  background-color: #28a745;
+  /* Hijau */
+}
+
+.custom-toast--error {
+  background-color: #dc3545;
+  /* Merah */
+}
+
+.custom-toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.custom-toast i {
+  font-size: 1.25rem;
+}
+
+/* Animasi untuk ikon spinner */
+.fa-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 /* --- Homepage Specific (Final Polished Version) --- */
 #page-home .section-container--no-vertical-padding {
   padding-top: 0;

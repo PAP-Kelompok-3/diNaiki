@@ -44,3 +44,43 @@ export async function loadComponent(targetId, filePath, basePath = './') {
 export function setDynamicTitle(pageTitle) {
   document.title = pageTitle ? `diNaiki - ${pageTitle}` : 'diNaiki';
 }
+
+
+/**
+ * Menampilkan notifikasi toast yang custom.
+ * @param {string} message - Pesan yang akan ditampilkan.
+ * @param {string} [type='info'] - Tipe notifikasi ('success', 'error', atau 'info').
+ */
+export function showToast(message, type = 'info') {
+  // Hapus toast yang mungkin sudah ada
+  const existingToast = document.getElementById('custom-toast');
+  if (existingToast) {
+    existingToast.remove();
+  }
+
+  const toast = document.createElement('div');
+  toast.id = 'custom-toast';
+  toast.className = `custom-toast custom-toast--${type}`;
+
+  let iconClass = 'fas fa-info-circle';
+  if (type === 'success') iconClass = 'fas fa-check-circle';
+  if (type === 'error') iconClass = 'fas fa-exclamation-circle';
+
+  toast.innerHTML = `<i class="${iconClass}"></i><span>${message}</span>`;
+
+  document.body.appendChild(toast);
+
+  // Memicu animasi
+  setTimeout(() => {
+    toast.classList.add('show');
+  }, 10);
+
+  // Menghilangkan toast setelah 3 detik
+  setTimeout(() => {
+    toast.classList.remove('show');
+    // Hapus elemen dari DOM setelah animasi selesai
+    setTimeout(() => {
+      toast.remove();
+    }, 500);
+  }, 3000);
+}
