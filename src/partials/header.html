@@ -10,7 +10,12 @@
   </nav>
   <div class="header-actions">
     <a href="#" class="header-actions__link" aria-label="Search"><i class="fas fa-search"></i></a>
-    <a href="#" class="header-actions__link" aria-label="Cart"><i class="fas fa-shopping-cart"></i></a>
+
+    <a href="{base_path}pages/checkout.html" class="header-actions__link" aria-label="Cart">
+      <i class="fas fa-shopping-cart"></i>
+      <span class="cart-item-count" id="cart-item-count">0</span>
+    </a>
+
     <a href="{base_path}pages/profile.html" class="header-actions__link" aria-label="User Account"><i
         class="fas fa-user"></i></a>
   </div>
