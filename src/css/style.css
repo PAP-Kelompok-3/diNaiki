@@ -158,6 +158,35 @@ img {
   color: #000000;
 }
 
+/* Tambahkan di bawah blok .header-actions__link */
+
+.cart-item-count {
+  background-color: #dc3545;
+  color: white;
+  font-size: 0.65rem;
+  /* Ukuran font lebih kecil */
+  font-weight: 700;
+  border-radius: 50%;
+  padding: 2px 5px;
+  position: absolute;
+  top: -5px;
+  /* Sesuaikan posisi vertikal */
+  right: -8px;
+  /* Sesuaikan posisi horizontal */
+  line-height: 1;
+  min-width: 18px;
+  /* Agar bentuknya tetap bulat */
+  text-align: center;
+  display: none;
+  /* Sembunyi jika keranjang kosong */
+  border: 1px solid white;
+  /* Memberi sedikit outline \*/
+}
+
+.header-actions__link[aria-label="Cart"] {
+  position: relative;
+}
+
 /* === AKHIR BAGIAN PERBAIKAN === */
 
 

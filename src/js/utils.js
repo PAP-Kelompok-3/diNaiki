@@ -1,8 +1,10 @@
+/**
+ * utils.js
+ * Berisi fungsi-fungsi pembantu yang digunakan di seluruh situs.
+ */
+
 export const DATA_URL = 'https://pap-kelompok-3.github.io/cdn-diNaiki/data.json';
 
-/**
- * Mengambil data dari URL. Cache hasil untuk performa.
- */
 let cachedData = null;
 export async function fetchData() {
   if (cachedData) return cachedData;
@@ -17,70 +19,106 @@ export async function fetchData() {
   }
 }
 
-/**
- * Memuat komponen HTML ke dalam elemen target.
- */
 export async function loadComponent(targetId, filePath, basePath = './') {
   const element = document.getElementById(targetId);
   if (!element) return;
   try {
     const response = await fetch(`${basePath}${filePath}`);
     if (!response.ok) throw new Error(`Gagal memuat ${filePath}`);
-
     let htmlContent = await response.text();
-    // Ganti semua placeholder {base_path} dengan path yang benar
     htmlContent = htmlContent.replace(/{base_path}/g, basePath);
-
     element.innerHTML = htmlContent;
   } catch (error) {
     console.error(`Error memuat komponen ${targetId}:`, error);
-    element.innerHTML = `<p class="error-message">Gagal memuat bagian ini.</p>`;
   }
 }
 
-/**
- * Mengatur judul halaman.
- */
 export function setDynamicTitle(pageTitle) {
   document.title = pageTitle ? `diNaiki - ${pageTitle}` : 'diNaiki';
 }
 
-
-/**
- * Menampilkan notifikasi toast yang custom.
- * @param {string} message - Pesan yang akan ditampilkan.
- * @param {string} [type='info'] - Tipe notifikasi ('success', 'error', atau 'info').
- */
 export function showToast(message, type = 'info') {
-  // Hapus toast yang mungkin sudah ada
   const existingToast = document.getElementById('custom-toast');
-  if (existingToast) {
-    existingToast.remove();
-  }
-
+  if (existingToast) { existingToast.remove(); }
   const toast = document.createElement('div');
   toast.id = 'custom-toast';
   toast.className = `custom-toast custom-toast--${type}`;
-
   let iconClass = 'fas fa-info-circle';
   if (type === 'success') iconClass = 'fas fa-check-circle';
   if (type === 'error') iconClass = 'fas fa-exclamation-circle';
-
   toast.innerHTML = `<i class="${iconClass}"></i><span>${message}</span>`;
-
   document.body.appendChild(toast);
-
-  // Memicu animasi
-  setTimeout(() => {
-    toast.classList.add('show');
-  }, 10);
-
-  // Menghilangkan toast setelah 3 detik
+  setTimeout(() => { toast.classList.add('show'); }, 10);
   setTimeout(() => {
     toast.classList.remove('show');
-    // Hapus elemen dari DOM setelah animasi selesai
-    setTimeout(() => {
-      toast.remove();
-    }, 500);
+    setTimeout(() => { if (toast) toast.remove(); }, 500);
   }, 3000);
+}
+
+// --- FUNGSI-FUNGSI MANAJEMEN KERANJANG ---
+
+export function getCart() {
+  const cart = localStorage.getItem('diNaikiCart');
+  return cart ? JSON.parse(cart) : [];
+}
+
+function saveCart(cart) {
+  localStorage.setItem('diNaikiCart', JSON.stringify(cart));
+}
+
+export function addToCart(product) {
+  const cart = getCart();
+  const cartItemId = `${product.id}-${product.size}`;
+  const existingItem = cart.find(item => item.cartId === cartItemId);
+  if (existingItem) {
+    existingItem.quantity++;
+  } else {
+    cart.push({
+      cartId: cartItemId, id: product.id, name: product.name,
+      price: product.price, size: product.size, image: product.image,
+      quantity: 1
+    });
+  }
+  saveCart(cart);
+}
+
+export function getCartItemCount() {
+  return getCart().reduce((total, item) => total + item.quantity, 0);
+}
+
+export function removeFromCart(cartId) {
+  let cart = getCart();
+  cart = cart.filter(item => item.cartId !== cartId);
+  saveCart(cart);
+}
+
+export function updateCartItem(cartId, updates) {
+  let cart = getCart();
+  const itemIndexToUpdate = cart.findIndex(item => item.cartId === cartId);
+  if (itemIndexToUpdate === -1) return;
+
+  const updatedItem = { ...cart[itemIndexToUpdate], ...updates };
+
+  if (updatedItem.quantity <= 0) {
+    cart.splice(itemIndexToUpdate, 1);
+    saveCart(cart);
+    return;
+  }
+
+  if (updates.size) {
+    const newCartId = `${updatedItem.id}-${updatedItem.size}`;
+    const existingDuplicateIndex = cart.findIndex((item, index) => item.cartId === newCartId && index !== itemIndexToUpdate);
+
+    if (existingDuplicateIndex > -1) {
+      cart[existingDuplicateIndex].quantity += updatedItem.quantity;
+      cart.splice(itemIndexToUpdate, 1);
+    } else {
+      updatedItem.cartId = newCartId;
+      cart[itemIndexToUpdate] = updatedItem;
+    }
+  } else {
+    cart[itemIndexToUpdate] = updatedItem;
+  }
+
+  saveCart(cart);
 }

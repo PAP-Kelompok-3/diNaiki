@@ -39,7 +39,6 @@
             <div class="form-group"><label for="email">Alamat Email</label><input type="email" id="email"
                 class="form-input" placeholder="anda@email.com" required></div>
           </div>
-
           <div class="form-section">
             <h2 class="form-section__title">Alamat Pengiriman</h2>
             <div class="form-group"><label for="fullname">Nama Lengkap</label><input type="text" id="fullname"
@@ -48,16 +47,13 @@
                 class="form-input" placeholder="Jalan, No. Rumah, RT/RW" required></div>
             <div class="form-row">
               <div class="form-group"><label for="city">Kota/Kabupaten</label><input type="text" id="city"
-                  class="form-input" required>
-              </div>
+                  class="form-input" required></div>
               <div class="form-group"><label for="postcode">Kode Pos</label><input type="text" id="postcode"
-                  class="form-input" required>
-              </div>
+                  class="form-input" required></div>
             </div>
             <div class="form-group"><label for="phone">Nomor Telepon</label><input type="tel" id="phone"
                 class="form-input" placeholder="08xxxxxxxxxx" required></div>
           </div>
-
           <div class="form-section">
             <h2 class="form-section__title">Metode Pengiriman</h2>
             <div class="selection-group" id="shipping-options">
@@ -76,13 +72,12 @@
               </label>
             </div>
           </div>
-
           <div class="form-section">
             <h2 class="form-section__title">Metode Pembayaran</h2>
             <div class="selection-group" id="payment-options">
               <label class="selection-option"><input type="radio" name="payment-method" value="bca_va" checked><img
-                  src="../src/img/payment/bca.svg" alt="BCA"><span class="selection-option__name">BCA Virtual
-                  Account</span></label>
+                  src="../src/img/payment/bca.svg" alt="BCA"><span
+                  class="selection-option__name">BCA Virtual Account</span></label>
               <label class="selection-option"><input type="radio" name="payment-method" value="qris"><img
                   src="../src/img/payment/qris.svg" alt="QRIS"><span class="selection-option__name">QRIS</span></label>
             </div>
@@ -103,23 +98,17 @@
         <button class="btn btn--black" id="pay-button" style="width: 100%;">Bayar Sekarang</button>
       </aside>
     </div>
-  </main>
-
-  <div id="footer-placeholder"></div>
-
-  <div class="payment-modal" id="payment-modal">
-    <div class="modal-overlay" id="modal-overlay"></div>
-    <div class="modal-content">
-      <button class="modal-close-btn" id="modal-close-btn">&times;</button>
-      <div class="modal-header">
-        <h2 class="modal-title" id="modal-title">Instruksi Pembayaran</h2>
-      </div>
-      <div class="modal-body" id="modal-body">
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn--black" id="modal-done-btn">Selesai</button>
+    <div class="payment-modal" id="payment-modal">
+      <div class="modal-overlay" id="modal-overlay"></div>
+      <div class="modal-content"><button class="modal-close-btn" id="modal-close-btn">&times;</button>
+        <div class="modal-header">
+          <h2 class="modal-title" id="modal-title">Instruksi Pembayaran</h2>
+        </div>
+        <div class="modal-body" id="modal-body"></div>
+        <div class="modal-footer"><button class="btn btn--black" id="modal-done-btn">Selesai</button></div>
       </div>
     </div>
-  </div>
+  </main>
+  <div id="footer-placeholder"></div>
 </body>
 </html>

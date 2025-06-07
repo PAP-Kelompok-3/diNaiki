@@ -1,12 +1,13 @@
 /* Styles for /pages/checkout.html - Final Polished Version */
 
+/* Memberi sedikit warna pada body agar 'kartu' checkout menonjol */
 #page-checkout {
   background-color: #f9fafb;
 }
 
+/* Memastikan kontainer utama selalu di tengah desktop dan punya ruang napas */
 #page-checkout .page-container {
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   max-width: 1200px;
   padding-top: 2rem;
   padding-bottom: 4rem;
@@ -34,7 +35,7 @@
   }
 }
 
-/* --- Layout Utama --- */
+/* --- Layout Utama (Bingkai Checkout) --- */
 .checkout-layout {
   display: grid;
   grid-template-columns: 1fr;
@@ -205,6 +206,9 @@
 }
 
 .order-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
   padding-bottom: 1.5rem;
   margin-bottom: 1.5rem;
   border-bottom: 1px solid #d1d5db;
@@ -217,29 +221,86 @@
 }
 
 .summary-item__image {
-  width: 64px;
-  height: 64px;
+  width: 80px;
+  height: 80px;
   object-fit: cover;
   border-radius: 0.375rem;
-  border: 1px solid #e5e7eb;
+  flex-shrink: 0;
+}
+
+.summary-item__content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+  min-height: 80px;
 }
 
 .summary-item__info {
-  flex: 1;
+  line-height: 1.4;
 }
 
 .summary-item__name {
   font-weight: 600;
-}
-
-.summary-item__meta {
-  font-size: 0.875rem;
-  color: #6b7280;
+  font-size: 0.9rem;
 }
 
 .summary-item__price {
+  font-size: 1rem;
   font-weight: 500;
-  text-align: right;
+  margin-top: 0.25rem;
+}
+
+.summary-item__actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  border: 1px solid #d1d5db;
+  border-radius: 0.25rem;
+}
+
+.qty-btn {
+  width: 28px;
+  height: 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #4b5563;
+}
+
+.qty-display {
+  width: 32px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.summary-item__size-select {
+  border: 1px solid #d1d5db;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  padding: 4px 6px;
+}
+
+.summary-item__remove-btn {
+  background: none;
+  border: none;
+  color: #6b7280;
+  font-size: 1.125rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.summary-item__remove-btn:hover {
+  color: #ef4444;
 }
 
 .order-totals {
@@ -283,7 +344,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Default state: tersembunyi */
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
@@ -308,7 +368,6 @@
   width: 90%;
   max-width: 480px;
   text-align: center;
-  /* Animasi muncul */
   transform: translateY(20px);
   transition: transform 0.3s ease;
 }
