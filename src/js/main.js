@@ -1,5 +1,4 @@
-import { loadComponent, setDynamicTitle, fetchData } from './utils.js';
-
+import { loadComponent, setDynamicTitle, fetchData, showToast } from './utils.js';
 // --- Fungsi Inisialisasi Halaman ---
 
 async function initHomePage() {
@@ -180,7 +179,7 @@ async function initSneakersPage() {
         event.stopPropagation();
         const productId = event.target.dataset.productId;
         const product = allProducts.find(p => p.id == productId);
-        alert(`"${product.name}" telah ditambahkan ke keranjang! (simulasi)`);
+        showToast(`"${product.name}" telah ditambahkan ke keranjang!`, 'success');
       }
     });
 
@@ -289,7 +288,7 @@ async function initDetailProductPage() {
   buyBtn.addEventListener('click', () => {
     const selectedSize = selectedSizeInput.value;
     if (!selectedSize) {
-      alert('Silakan pilih ukuran terlebih dahulu.');
+      showToast('Silakan pilih ukuran terlebih dahulu.', 'error');
       return; // Hentikan fungsi jika ukuran belum dipilih
     }
 
@@ -304,12 +303,12 @@ async function initDetailProductPage() {
   addBtn.addEventListener('click', () => {
     const selectedSize = selectedSizeInput.value;
     if (!selectedSize) {
-      alert('Silakan pilih ukuran terlebih dahulu.');
+      showToast('Silakan pilih ukuran terlebih dahulu.', 'error');
       return;
     }
 
     // Simulasi penambahan ke keranjang
-    alert(`"${product.name}" ukuran ${selectedSize} telah ditambahkan ke keranjang! (simulasi)`);
+    showToast(`"${product.name}" ukuran ${selectedSize} telah ditambahkan ke keranjang!`, 'success');
   });
 }
 
@@ -317,85 +316,105 @@ async function initDetailProductPage() {
 
 function initCheckoutPage() {
   setDynamicTitle('Checkout');
-
-  // --- STATE & ELEMEN ---
   let productPrice = 0;
   let shippingCost = 0;
-
   const params = new URLSearchParams(window.location.search);
   productPrice = parseFloat(params.get('price')) || 0;
-
   const orderItemsContainer = document.getElementById('order-items');
   const subtotalEl = document.getElementById('summary-subtotal');
   const shippingEl = document.getElementById('summary-shipping');
   const totalEl = document.getElementById('summary-total');
-  const shippingOptions = document.querySelectorAll('#shipping-options input[type="radio"]');
-  const paymentOptions = document.querySelectorAll('#payment-options .selection-option');
-
-  /**
-   * Fungsi untuk menghitung ulang dan menampilkan total
-   */
+  const shippingOptionsContainer = document.getElementById('shipping-options');
+  const paymentOptionsContainer = document.getElementById('payment-options');
+  const payButton = document.getElementById('pay-button');
+  const paymentModal = document.getElementById('payment-modal');
+  const modalOverlay = document.getElementById('modal-overlay');
+  const modalCloseBtn = document.getElementById('modal-close-btn');
+  const modalDoneBtn = document.getElementById('modal-done-btn');
+  const modalTitle = document.getElementById('modal-title');
+  const modalBody = document.getElementById('modal-body');
+  if (!orderItemsContainer || !shippingOptionsContainer || !paymentOptionsContainer) { console.error('Elemen checkout penting tidak ditemukan.'); return; }
+  const shippingRadios = shippingOptionsContainer.querySelectorAll('input[type="radio"]');
+  const paymentLabels = paymentOptionsContainer.querySelectorAll('.selection-option');
   function updateTotals() {
     const totalCost = productPrice + shippingCost;
     subtotalEl.textContent = `Rp ${productPrice.toLocaleString('id-ID')}`;
     shippingEl.textContent = `Rp ${shippingCost.toLocaleString('id-ID')}`;
     totalEl.textContent = `Rp ${totalCost.toLocaleString('id-ID')}`;
   }
-
-  // --- INISIALISASI HALAMAN ---
   if (!productPrice) {
     orderItemsContainer.innerHTML = '<p>Keranjang Anda kosong.</p>';
+    if (document.querySelector('.order-totals')) { document.querySelector('.order-totals').style.display = 'none'; }
+    if (payButton) { payButton.style.display = 'none'; }
     return;
   }
-
-  // Tampilkan item di ringkasan pesanan
   const productName = params.get('product');
   const productSize = params.get('size');
   const productImage = params.get('image');
-  orderItemsContainer.innerHTML = `
-    <div class="summary-item">
-      <img src="${productImage}" alt="${productName}" class="summary-item__image">
-      <div class="summary-item__info">
-        <p class="summary-item__name">${productName}</p>
-        <p class="summary-item__meta">Ukuran: ${productSize || 'N/A'}</p>
-      </div>
-      <span class="summary-item__price">Rp ${productPrice.toLocaleString('id-ID')}</span>
-    </div>`;
-
-  // --- EVENT LISTENERS ---
-
-  // Listener untuk pilihan pengiriman
-  shippingOptions.forEach(radio => {
-    // Set ongkir awal
+  orderItemsContainer.innerHTML = `<div class="summary-item"><img src="${productImage}" alt="${productName}" class="summary-item__image"><div class="summary-item__info"><p class="summary-item__name">${productName}</p><p class="summary-item__meta">Ukuran: ${productSize || 'N/A'}</p></div><span class="summary-item__price">Rp ${productPrice.toLocaleString('id-ID')}</span></div>`;
+  shippingRadios.forEach(radio => {
     if (radio.checked) {
       shippingCost = parseFloat(radio.dataset.cost);
+      radio.closest('label').classList.add('selected');
     }
-
     radio.addEventListener('change', (e) => {
-      // Hapus class 'selected' dari semua opsi
       e.target.closest('.selection-group').querySelectorAll('.selection-option').forEach(label => label.classList.remove('selected'));
-      // Tambahkan class ke parent label
       const selectedLabel = e.target.closest('label');
       selectedLabel.classList.add('selected');
-      // Update biaya pengiriman dan hitung ulang total
       shippingCost = parseFloat(e.target.dataset.cost);
       updateTotals();
     });
-    // Tandai pilihan default
-    if (radio.checked) radio.closest('label').classList.add('selected');
   });
-
-  // Listener untuk pilihan pembayaran
-  paymentOptions.forEach(label => {
-    label.addEventListener('click', () => {
-      paymentOptions.forEach(opt => opt.classList.remove('selected'));
+  paymentLabels.forEach(label => {
+    if (label.querySelector('input').checked) {
       label.classList.add('selected');
-      label.querySelector('input[type="radio"]').checked = true;
+    }
+    label.addEventListener('click', (event) => {
+      paymentLabels.forEach(opt => opt.classList.remove('selected'));
+      const selectedLabel = event.currentTarget;
+      selectedLabel.classList.add('selected');
+      selectedLabel.querySelector('input[type="radio"]').checked = true;
     });
-    if (label.querySelector('input').checked) label.classList.add('selected');
   });
-
-  // Panggil updateTotals() pertama kali untuk menampilkan harga awal
+  function openPaymentModal() {
+    const selectedPayment = document.querySelector('input[name="payment-method"]:checked').value;
+    const totalCost = productPrice + shippingCost;
+    const formattedTotal = `Rp ${totalCost.toLocaleString('id-ID')}`;
+    let modalHTML = '';
+    if (selectedPayment === 'qris') {
+      modalTitle.textContent = 'Pembayaran QRIS';
+      modalHTML = `<p>Scan kode QR di bawah ini dengan aplikasi E-Wallet Anda.</p><img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=diNaiki-payment-${totalCost}" alt="QR Code" class="qris-image"><div class="va-details"><div class="va-total">Total Pembayaran: <strong>${formattedTotal}</strong></div></div>`;
+    } else if (selectedPayment === 'bca_va') {
+      modalTitle.textContent = 'BCA Virtual Account';
+      const vaNumber = `88088${Math.floor(1000000000 + Math.random() * 9000000000)}`;
+      modalHTML = `<p>Selesaikan pembayaran ke nomor Virtual Account di bawah ini.</p><div class="va-details"><div class="va-number">${vaNumber}</div><div class="va-total">Total Pembayaran: <strong>${formattedTotal}</strong></div></div><p style="font-size: 0.75rem;">Nomor akan kedaluwarsa dalam 24 jam.</p>`;
+    }
+    modalBody.innerHTML = modalHTML;
+    paymentModal.classList.add('is-open');
+  }
+  function closePaymentModal() {
+    paymentModal.classList.remove('is-open');
+  }
+  function donePaymentModal() {
+    paymentModal.classList.remove('is-open');
+    showToast('Pesanan berhasil dibuat!', 'success');
+    setTimeout(() => { window.location.href = '../index.html'; }, 1500);
+  }
+  if (payButton) {
+    payButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      const form = document.getElementById('checkout-form');
+      if (form.checkValidity() === false) {
+        showToast('Mohon lengkapi semua data pengiriman.', 'error');
+        form.reportValidity();
+        return;
+      }
+      openPaymentModal();
+    });
+  }
+  modalOverlay.addEventListener('click', closePaymentModal);
+  modalCloseBtn.addEventListener('click', closePaymentModal);
+  modalDoneBtn.addEventListener('click', donePaymentModal);
   updateTotals();
 }
 
