@@ -49,20 +49,17 @@ async function initSneakersPage() {
   setDynamicTitle('All Sneakers');
 
   const gridContainer = document.getElementById('product-grid');
-  const sortSelectDesktop = document.querySelector('.product-sort');
-  const sortSelectMobile = document.querySelector('.product-sort-mobile');
+  const sortSelect = document.querySelector('.product-sort');
   const productCountEl = document.querySelector('.product-count');
   const paginationContainer = document.querySelector('.pagination');
   const filterSidebar = document.querySelector('.filter-sidebar');
-  const mobileFilterBtn = document.getElementById('mobile-filter-btn');
+  const filterToggleBtn = document.getElementById('filter-toggle-btn');
   const overlay = document.getElementById('overlay');
 
   const closeBtn = document.createElement('button');
   closeBtn.innerHTML = '&times;';
   closeBtn.className = 'filter-sidebar__close-btn';
-  if (filterSidebar) filterSidebar.prepend(closeBtn);
-
-  if (!gridContainer) return;
+  filterSidebar.prepend(closeBtn);
 
   const PRODUCTS_PER_PAGE = 6;
   let allProducts = [];
@@ -90,7 +87,8 @@ async function initSneakersPage() {
       gridContainer.innerHTML = '<p class="info-message" style="grid-column: 1 / -1;">Tidak ada produk yang cocok dengan kriteria Anda.</p>';
     } else {
       paginatedProducts.forEach(item => {
-        gridContainer.appendChild(createProductCard(item));
+        const card = createProductCard(item);
+        gridContainer.appendChild(card);
       });
     }
     productCountEl.textContent = `Menampilkan ${productsToRender.length} dari ${allProducts.length} produk`;
@@ -105,6 +103,7 @@ async function initSneakersPage() {
     const mobileInfo = document.createElement('span');
     mobileInfo.className = 'pagination__mobile-info';
     mobileInfo.textContent = `Halaman ${currentPage} dari ${totalPages}`;
+    paginationContainer.appendChild(mobileInfo);
 
     const prevLink = document.createElement('a');
     prevLink.href = '#';
@@ -112,15 +111,8 @@ async function initSneakersPage() {
     prevLink.className = 'pagination__link';
     prevLink.dataset.page = currentPage - 1;
     if (currentPage === 1) prevLink.style.visibility = 'hidden';
+    paginationContainer.prepend(prevLink);
 
-    const nextLink = document.createElement('a');
-    nextLink.href = '#';
-    nextLink.innerHTML = '&raquo;';
-    nextLink.className = 'pagination__link';
-    nextLink.dataset.page = currentPage + 1;
-    if (currentPage === totalPages) nextLink.style.visibility = 'hidden';
-
-    paginationContainer.append(prevLink, mobileInfo);
     for (let i = 1; i <= totalPages; i++) {
       const pageLink = document.createElement('a');
       pageLink.href = '#';
@@ -130,6 +122,13 @@ async function initSneakersPage() {
       pageLink.dataset.page = i;
       paginationContainer.appendChild(pageLink);
     }
+
+    const nextLink = document.createElement('a');
+    nextLink.href = '#';
+    nextLink.innerHTML = '&raquo;';
+    nextLink.className = 'pagination__link';
+    nextLink.dataset.page = currentPage + 1;
+    if (currentPage === totalPages) nextLink.style.visibility = 'hidden';
     paginationContainer.appendChild(nextLink);
   }
 
@@ -141,18 +140,21 @@ async function initSneakersPage() {
     if (item.rating) {
       ratingHTML = `<div class="product-card__rating"><i class="fas fa-star filled"></i><span> ${item.rating}</span></div>`;
     }
-    cardLink.innerHTML = `<div class="product-card__image-wrapper"><img class="product-card__image" src="${item.images[0]}" alt="${item.name}" loading="lazy"><div class="product-card__action"><button type="button" class="btn btn--black" data-product-id="${item.id}" style="width: 100%;">Add to Cart</button></div></div><div class="product-card__content"><h3 class="product-card__name">${item.name}</h3><p class="product-card__price">Rp ${item.price.toLocaleString('id-ID')}</p>${ratingHTML}</div>`;
+    cardLink.innerHTML = `
+      <div class="product-card__image-wrapper"><img class="product-card__image" src="${item.images[0]}" alt="${item.name}" loading="lazy"><div class="product-card__action"><button type="button" class="btn btn--black" data-product-id="${item.id}" style="width: 100%;">Add to Cart</button></div></div>
+      <div class="product-card__content"><h3 class="product-card__name">${item.name}</h3><p class="product-card__price">Rp ${item.price.toLocaleString('id-ID')}</p>${ratingHTML}</div>`;
     return cardLink;
   }
 
   function setupEventListeners() {
     const priceRangeOptions = document.querySelectorAll('.price-range-option');
     const resetFilterBtn = document.getElementById('reset-filter-btn');
+
     function closeFilter() {
       filterSidebar.classList.remove('filter-sidebar--is-open');
       overlay.classList.remove('overlay--is-active');
     }
-    if (mobileFilterBtn) mobileFilterBtn.addEventListener('click', () => {
+    filterToggleBtn.addEventListener('click', () => {
       filterSidebar.classList.add('filter-sidebar--is-open');
       overlay.classList.add('overlay--is-active');
     });
@@ -178,15 +180,11 @@ async function initSneakersPage() {
       renderProducts();
     });
 
-    function handleSortChange(event) {
+    sortSelect.addEventListener('change', (event) => {
       currentSort = event.target.value;
       currentPage = 1;
-      if (sortSelectDesktop && sortSelectDesktop.value !== currentSort) sortSelectDesktop.value = currentSort;
-      if (sortSelectMobile && sortSelectMobile.value !== currentSort) sortSelectMobile.value = currentSort;
       renderProducts();
-    }
-    if (sortSelectDesktop) sortSelectDesktop.addEventListener('change', handleSortChange);
-    if (sortSelectMobile) sortSelectMobile.addEventListener('change', handleSortChange);
+    });
 
     gridContainer.addEventListener('click', (event) => {
       const button = event.target.closest('.btn--black');
@@ -195,9 +193,15 @@ async function initSneakersPage() {
         event.stopPropagation();
         const productId = button.dataset.productId;
         const product = allProducts.find(p => p.id == productId);
+
         const selectedSize = product.sizes[0];
-        addToCart({ id: product.id, name: product.name, price: product.price, size: selectedSize, image: product.images[0] });
-        showToast(`"${product.name}" ditambahkan!`, 'success');
+        const productToAdd = {
+          id: product.id, name: product.name, price: product.price,
+          size: selectedSize, image: product.images[0]
+        };
+
+        addToCart(productToAdd);
+        showToast(`"${product.name}" (Ukuran ${selectedSize}) ditambahkan!`, 'success');
         updateCartIcon();
       }
     });
@@ -208,7 +212,7 @@ async function initSneakersPage() {
       if (target && !target.matches('.current')) {
         currentPage = parseInt(target.dataset.page);
         renderProducts();
-        document.querySelector('.page-heading')?.scrollIntoView({ behavior: 'smooth' });
+        document.querySelector('.page-heading').scrollIntoView({ behavior: 'smooth' });
       }
     });
   }
@@ -468,8 +472,11 @@ function initCheckoutPage() {
       updateCartIcon();
       setTimeout(() => { window.location.href = '../index.html'; }, 2000);
     }
-    modalOverlay.addEventListener('click', closePaymentModalAndFinalize);
-    modalCloseBtn.addEventListener('click', closePaymentModalAndFinalize);
+    function closePaymentModal() {
+      paymentModal.classList.remove('is-open');
+    }
+    modalOverlay.addEventListener('click', closePaymentModal);
+    modalCloseBtn.addEventListener('click', closePaymentModal);
     modalDoneBtn.addEventListener('click', closePaymentModalAndFinalize);
   }
   (async () => {
