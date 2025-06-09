@@ -1,11 +1,7 @@
-/* Styles for /pages/checkout.html - Final Polished Version */
-
-/* Memberi sedikit warna pada body agar 'kartu' checkout menonjol */
 #page-checkout {
   background-color: #f9fafb;
 }
 
-/* Memastikan kontainer utama selalu di tengah desktop dan punya ruang napas */
 #page-checkout .page-container {
   margin: 0 auto;
   max-width: 1200px;
@@ -35,7 +31,6 @@
   }
 }
 
-/* --- Layout Utama (Bingkai Checkout) --- */
 .checkout-layout {
   display: grid;
   grid-template-columns: 1fr;
@@ -51,7 +46,6 @@
   }
 }
 
-/* --- Kolom Kiri: Form --- */
 .checkout-details {
   padding: 1.5rem;
 }
@@ -122,7 +116,6 @@
   }
 }
 
-/* --- Style Pilihan (Untuk Pengiriman & Pembayaran) --- */
 .selection-group {
   display: flex;
   flex-direction: column;
@@ -181,7 +174,6 @@
   color: #6b7280;
 }
 
-/* --- Kolom Kanan: Ringkasan Pesanan --- */
 .order-summary {
   padding: 1.5rem;
   background-color: #f9fafb;

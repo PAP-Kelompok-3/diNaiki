@@ -1,6 +1,3 @@
-/* ====================
-   Base Styles
-   ==================== */
 .product-detail-container {
   max-width: 1120px;
   margin: 2.5rem auto;
@@ -24,7 +21,6 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  /* diperkecil untuk mobile */
 }
 
 .product-gallery__arrow {
@@ -42,9 +38,7 @@
 .product-gallery__thumbnails {
   display: flex;
   gap: 0.75rem;
-  /* dikurangi sedikit */
   overflow-x: auto;
-  /* scroll horizontal jika tidak muat */
   padding-bottom: 0.5rem;
 }
 
@@ -59,9 +53,7 @@
 
 .product-gallery__thumbnails img {
   width: 56px;
-  /* diperkecil untuk mobile */
   height: 56px;
-  /* diperkecil untuk mobile */
   border-radius: 0.5rem;
   cursor: pointer;
   opacity: 0.6;
@@ -79,10 +71,8 @@
   opacity: 1;
 }
 
-/* Info Section */
 .product-info__title {
   font-size: 1.875rem;
-  /* diperkecil untuk mobile */
   font-weight: 600;
   letter-spacing: 0.05em;
   margin-bottom: 0.5rem;
@@ -91,14 +81,12 @@
 .product-info__meta {
   display: flex;
   flex-direction: column;
-  /* kolom untuk mobile */
   gap: 0.5rem;
   margin-bottom: 1rem;
 }
 
 .product-info__price {
   font-size: 1.125rem;
-  /* diperkecil untuk mobile */
   font-weight: 500;
 }
 
@@ -118,26 +106,22 @@
   line-height: 1.6;
   color: #4b5563;
   font-size: 0.95rem;
-  /* sedikit diperkecil */
 }
 
 .product-info__sizes {
   display: flex;
   gap: 0.5rem;
-  /* diperkecil agar muat */
   flex-wrap: wrap;
   margin-bottom: 1.5rem;
 }
 
 .size-box {
   padding: 0.5rem 0.75rem;
-  /* padding dikurangi */
   border: 2px solid #d1d5db;
   border-radius: 0.5rem;
   cursor: pointer;
   font-weight: 600;
   font-size: 0.875rem;
-  /* font lebih kecil */
   transition: all 0.2s ease-in-out;
 }
 
@@ -150,7 +134,6 @@
 .product-info__actions {
   display: flex;
   gap: 0.75rem;
-  /* dikurangi */
   flex-wrap: wrap;
 }
 
@@ -161,7 +144,6 @@
   cursor: pointer;
   border-radius: 0.375rem;
   flex: 1 1 45%;
-  /* secara default akan memenuhi setengah baris di mobile */
   text-align: center;
 }
 
@@ -180,9 +162,6 @@
   opacity: 0.9;
 }
 
-/* ====================
-       Medium Screens (≥ 768px)
-       ==================== */
 @media (min-width: 768px) {
   .product-detail-container {
     grid-template-columns: 1fr 1fr;
@@ -195,7 +174,6 @@
 
   .product-info__meta {
     flex-direction: row;
-    /* kembali ke baris */
     justify-content: space-between;
     align-items: center;
   }
@@ -211,7 +189,6 @@
 
   .product-gallery__thumbnails {
     overflow: visible;
-    /* agar thumbnail tidak perlu scroll */
     gap: 1rem;
   }
 
@@ -221,15 +198,11 @@
 
   .btn {
     flex: 1 1 auto;
-    /* tombol tidak dipaksa 45% */
     padding: 0.75rem 1.25rem;
     font-size: 1rem;
   }
 }
 
-/* ====================
-       Large Screens (≥ 1024px)
-       ==================== */
 @media (min-width: 1024px) {
   .product-detail-container {
     gap: 3rem;

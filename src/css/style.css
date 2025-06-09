@@ -1,4 +1,4 @@
-/* --- Global Resets & Defaults --- */
+/* Base Styles */
 *,
 *::before,
 *::after {
@@ -36,7 +36,6 @@ img {
   display: block;
 }
 
-/* --- Utility & Shared Components --- */
 .container {
   max-width: 1280px;
   margin: 0 auto;
@@ -69,7 +68,6 @@ img {
   object-fit: cover;
 }
 
-/* --- Buttons --- */
 .btn {
   font-weight: 600;
   font-size: 12px;
@@ -98,7 +96,7 @@ img {
   background-color: #f0f0f0;
 }
 
-/* --- Header --- */
+/* --- Header Styles --- */
 .site-header {
   display: flex;
   align-items: center;
@@ -109,7 +107,6 @@ img {
 
 .site-header__logo-link {
   line-height: 0;
-  /* Menghindari spasi ekstra di sekitar logo */
 }
 
 .nav-logo-img {
@@ -118,7 +115,6 @@ img {
 
 .main-nav {
   display: none;
-  /* Sembunyi di mobile, tampil di desktop */
   gap: 3rem;
 }
 
@@ -137,18 +133,13 @@ img {
   gap: 1.5rem;
 }
 
-/* === BAGIAN YANG DIPERBAIKI === */
-/* Menggunakan satu class untuk semua ikon agar ukurannya konsisten */
 .header-actions__link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   font-size: 1.25rem;
-  /* Menentukan ukuran ikon */
   color: #374151;
   transition: color 0.2s ease-in-out;
-
-  /* Reset properti yang mungkin menyebabkan inkonsistensi */
   padding: 0;
   background-color: transparent;
   border: none;
@@ -158,39 +149,27 @@ img {
   color: #000000;
 }
 
-/* Tambahkan di bawah blok .header-actions__link */
-
 .cart-item-count {
   background-color: #dc3545;
   color: white;
   font-size: 0.65rem;
-  /* Ukuran font lebih kecil */
   font-weight: 700;
   border-radius: 50%;
   padding: 2px 5px;
   position: absolute;
   top: -5px;
-  /* Sesuaikan posisi vertikal */
   right: -8px;
-  /* Sesuaikan posisi horizontal */
   line-height: 1;
   min-width: 18px;
-  /* Agar bentuknya tetap bulat */
   text-align: center;
   display: none;
-  /* Sembunyi jika keranjang kosong */
   border: 1px solid white;
-  /* Memberi sedikit outline \*/
 }
 
 .header-actions__link[aria-label="Cart"] {
   position: relative;
 }
 
-/* === AKHIR BAGIAN PERBAIKAN === */
-
-
-/* Aturan untuk layar desktop */
 @media (min-width: 768px) {
   .main-nav {
     display: flex;
@@ -208,9 +187,7 @@ img {
 .footer-layout {
   display: flex;
   flex-direction: column;
-  /* Mobile-first: kolom menumpuk ke bawah */
   gap: 2.5rem;
-  /* Jarak antar kolom saat di mobile */
   color: #4b5563;
   font-size: 0.875rem;
 }
@@ -220,33 +197,22 @@ img {
   flex-direction: column;
 }
 
-/* Perbaikan Definitif untuk Posisi Logo */
 .footer-logo {
   align-self: flex-start;
-  /* Memaksa logo untuk rata kiri atas (tidak center secara vertikal) */
   width: auto;
-  /* Memastikan lebar logo tidak stretch */
 }
 
-.footer-column--info {
-  /* Tidak ada 'gap' di sini agar jarak bisa diatur manual oleh elemen anak */
-}
-
-/* Spasi manual untuk elemen di dalam kolom info */
 .footer-description {
   margin-top: 1rem;
-  /* Jarak antara logo dan deskripsi */
 }
 
 .footer-contact-item {
   margin-top: 0.75rem;
-  /* Jarak antar item kontak */
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-/* Judul setiap kolom footer */
 .footer-column__title {
   font-weight: 600;
   font-size: 1rem;
@@ -254,7 +220,6 @@ img {
   margin-bottom: 0.75rem;
 }
 
-/* Navigasi di dalam footer */
 .footer-nav {
   display: flex;
   flex-direction: column;
@@ -265,10 +230,8 @@ img {
   text-decoration: underline;
 }
 
-/* Form "Stay Updated" */
 .subscribe-form {
   display: flex;
-  /* Membuat input dan tombol sejajar */
 }
 
 .subscribe-form__input {
@@ -277,7 +240,6 @@ img {
   background-color: #e5e7eb;
   border: none;
   border-radius: 0.25rem 0 0 0.25rem;
-  /* Sudut tumpul hanya di kiri */
 }
 
 .subscribe-form__input:focus {
@@ -292,29 +254,22 @@ img {
   justify-content: center;
   color: #ffffff;
   border-radius: 0 0.25rem 0.25rem 0;
-  /* Sudut tumpul hanya di kanan */
 }
 
-
-/* Aturan Responsif untuk Layar Desktop */
 @media (min-width: 768px) {
   .footer-layout {
     flex-direction: row;
-    /* Kolom menjadi sejajar */
     justify-content: flex-start;
-    /* Kolom tidak menyebar, tapi mulai dari kiri */
     gap: 5rem;
-    /* Mengatur jarak antar kolom seperti tampilan awal */
   }
 
   .footer-column--info {
     max-width: 16rem;
     flex-shrink: 0;
-    /* Mencegah kolom info menyusut */
   }
 }
 
-/* --- Custom Toast Notification --- */
+/* --- Custom Toast Styles --- */
 .custom-toast {
   position: fixed;
   top: 20px;
@@ -335,12 +290,10 @@ img {
 
 .custom-toast--success {
   background-color: #28a745;
-  /* Hijau */
 }
 
 .custom-toast--error {
   background-color: #dc3545;
-  /* Merah */
 }
 
 .custom-toast.show {
@@ -352,7 +305,6 @@ img {
   font-size: 1.25rem;
 }
 
-/* Animasi untuk ikon spinner */
 .fa-spinner {
   animation: spin 1s linear infinite;
 }
@@ -367,26 +319,19 @@ img {
   }
 }
 
-/* --- Homepage Specific (Final Polished Version) --- */
+/* --- Home Page Styles --- */
 #page-home .section-container--no-vertical-padding {
   padding-top: 0;
   padding-bottom: 0;
 }
 
 #page-home {
-  /* -- CSS Variables untuk Konsistensi -- */
-  /* REFINEMENT: Mendefinisikan spasi dan font di satu tempat */
   --spacing-section: 4.5rem;
-  /* Jarak vertikal antar section */
   --spacing-heading-bottom: 2.5rem;
-  /* Jarak di bawah judul section */
   --font-hero-title: clamp(2.5rem, 5vw, 3.5rem);
-  /* Ukuran font responsif */
   --font-section-heading: clamp(1.5rem, 4vw, 2rem);
-  /* Ukuran font responsif */
 }
 
-/* --- Penataan Ulang Global untuk Home --- */
 #page-home main {
   width: 100%;
 }
@@ -394,25 +339,19 @@ img {
 .section-container {
   max-width: 1200px;
   margin: 0 auto;
-  /* REFINEMENT: Menggunakan variabel untuk padding atas-bawah yang konsisten */
   padding: var(--spacing-section) 1.5rem;
 }
 
 .section-heading {
   font-size: var(--font-section-heading);
-  /* REFINEMENT: Ukuran judul lebih besar & konsisten */
   font-weight: 600;
   text-align: center;
   margin-bottom: var(--spacing-heading-bottom);
-  /* REFINEMENT: Jarak bawah judul konsisten */
 }
 
-/* --- 1. Hero Section --- */
 .hero-section-legacy {
   padding-top: 1.5rem;
   text-align: center;
-  /* DIHAPUS: padding di sini sudah diatur oleh .section-container */
-  /* padding: 2rem 1.5rem 3rem; */
 }
 
 .hero-section-legacy__title {
@@ -427,7 +366,6 @@ img {
   border-radius: 0.5rem;
 }
 
-/* --- 2. Marquee Style Baru (Seamless & Dua Arah) --- */
 .marquee-banner {
   overflow: hidden;
   background-color: transparent;
@@ -436,14 +374,11 @@ img {
 }
 
 .marquee-banner__content {
-  /* Menggunakan flex agar duplikasi konten bekerja dengan baik */
   display: flex;
   width: fit-content;
-  /* Lebar sesuai konten di dalamnya */
   white-space: nowrap;
 }
 
-/* Menerapkan animasi yang sesuai berdasarkan class modifier */
 .marquee-banner--to-left .marquee-banner__content {
   animation: marquee-left 30s linear infinite;
 }
@@ -461,22 +396,16 @@ img {
   color: #1f2937;
 }
 
-
-/* Keyframes untuk animasi seamless */
-
-/* Animasi untuk bergerak ke kiri */
 @keyframes marquee-left {
   from {
     transform: translateX(0%);
   }
 
   to {
-    /* Bergerak sejauh 50% dari total lebar (karena konten diduplikasi) */
     transform: translateX(-50%);
   }
 }
 
-/* Animasi untuk bergerak ke kanan */
 @keyframes marquee-right {
   from {
     transform: translateX(-50%);
@@ -486,8 +415,6 @@ img {
     transform: translateX(0%);
   }
 }
-
-/* --- 3. Section 'New Arrival' --- */
 
 .new-arrival-legacy {
   display: flex;
@@ -510,7 +437,6 @@ img {
 
 .new-arrival-legacy__content .section-heading {
   margin-bottom: 0.5rem;
-  /* REFINEMENT: Jarak ke harga lebih dekat */
 }
 
 .new-arrival-legacy__price {
@@ -525,7 +451,6 @@ img {
   line-height: 1.6;
 }
 
-/* Class untuk memotong teks */
 .description--truncated {
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -546,14 +471,10 @@ img {
 
   .new-arrival-legacy__content .section-heading {
     text-align: left;
-    /* REFINEMENT: Judul rata kiri di desktop */
   }
 }
 
-/* 4. Collection Banner Style Baru (Final) */
 .collection-banner {
-  /* DIHAPUS: max-width dan margin auto dihapus dari sini */
-  /* DIUBAH: Lebar 100% dari parent-nya (.section-container) */
   width: 100%;
   height: 400px;
   background-size: cover;
@@ -562,11 +483,9 @@ img {
   display: flex;
   color: white;
   border-radius: 0.5rem;
-  /* Sudut tumpul agar rapi */
   overflow: hidden;
 }
 
-/* Efek zoom tetap dipertahankan */
 .collection-banner::before {
   content: '';
   position: absolute;
@@ -608,21 +527,18 @@ img {
   max-width: 450px;
 }
 
-/* --- 5. Featured Sneakers Section --- */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
 }
 
-/* REFINEMENT: Tampilan kartu produk lebih rapi */
 .product-card {
   border: 1px solid #f3f4f6;
   border-radius: 0.5rem;
   overflow: hidden;
   transition: box-shadow 0.2s, transform 0.2s;
   text-align: center;
-  /* Teks di tengah */
   background-color: #ffffff;
 }
 
@@ -637,7 +553,6 @@ img {
   object-fit: cover;
 }
 
-/* REFINEMENT: Wrapper untuk konten kartu */
 .product-card__content {
   padding: 1rem;
 }
@@ -664,7 +579,6 @@ img {
   }
 }
 
-/* --- 6. About Us Snippet --- */
 .about-snippet {
   background-color: #f9fafb;
   text-align: center;
@@ -677,7 +591,6 @@ img {
   color: #374151;
 }
 
-/* Animasi Marquee */
 @keyframes marquee {
   from {
     transform: translateX(0%);

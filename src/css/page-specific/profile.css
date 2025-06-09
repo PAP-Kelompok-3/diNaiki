@@ -1,13 +1,9 @@
-/* Styles for /pages/profile.html */
-
 .profile-container {
   max-width: 80rem;
   margin: 0 auto;
   padding: 1.5rem 1rem;
-  /* Padding untuk mobile */
 }
 
-/* Perbaikan untuk mengurangi jarak dari header */
 .profile-container .page-heading {
   text-align: left;
   margin-top: 0;
@@ -19,7 +15,6 @@
   gap: 1.5rem;
 }
 
-/* Sidebar */
 .profile-sidebar {
   width: 100%;
   border: 1px solid #e5e7eb;
@@ -79,7 +74,6 @@
   text-align: center;
 }
 
-/* Content Area */
 .profile-content {
   flex-grow: 1;
   border: 1px solid #e5e7eb;
@@ -154,22 +148,16 @@
   border-color: #9ca3af;
 }
 
-/* === PERBAIKAN FINAL UNTUK TOMBOL SUBMIT === */
 .profile-form__submit {
   background-color: #d1d5db;
-  /* Latar abu-abu terang seperti awal */
   color: #374151;
-  /* Teks gelap agar kontras dan terlihat */
   border-radius: 9999px;
-  /* Tombol bulat penuh */
   padding: 0.75rem 1rem;
-  /* Padding vertikal & horizontal */
   width: 100%;
   font-weight: 600;
   font-size: 1rem;
   text-align: center;
   border: none;
-  /* Hilangkan border dari class .btn global */
   transition: background-color 0.2s;
 }
 
@@ -177,10 +165,6 @@
   background-color: #9ca3af;
 }
 
-/* === AKHIR PERBAIKAN FINAL === */
-
-
-/* Aturan untuk Layar Desktop */
 @media (min-width: 768px) {
   .profile-container {
     padding: 2rem 1.5rem;

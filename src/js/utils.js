@@ -1,7 +1,7 @@
-/**
- * utils.js
- * Berisi fungsi-fungsi pembantu yang digunakan di seluruh situs.
- */
+/*
+* utils.js
+* Berisi fungsi-fungsi pembantu yang digunakan di seluruh situs.
+*/
 
 export const DATA_URL = 'https://pap-kelompok-3.github.io/cdn-diNaiki/data.json';
 

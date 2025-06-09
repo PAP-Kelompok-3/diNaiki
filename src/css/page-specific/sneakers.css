@@ -1,6 +1,3 @@
-/* Styles for /pages/sneakers.html - Final Polished Version with Mobile UX */
-
-/* --- Container Utama Halaman --- */
 #page-sneakers .page-container {
   padding: 1.5rem 1rem;
   max-width: 1400px;
@@ -22,8 +19,6 @@
   }
 }
 
-
-/* --- Main Layout (Sidebar + Grid) --- */
 .sneakers-layout {
   display: grid;
   grid-template-columns: 1fr;
@@ -37,7 +32,6 @@
   }
 }
 
-/* --- Filter Sidebar & Off-Canvas Mobile --- */
 .filter-sidebar {
   position: fixed;
   top: 0;
@@ -137,7 +131,6 @@
   margin-top: 1.5rem;
 }
 
-/* Overlay untuk background gelap saat filter terbuka */
 .overlay {
   position: fixed;
   inset: 0;
@@ -153,7 +146,6 @@
   pointer-events: auto;
 }
 
-/* --- Product Toolbar & Tombol Filter --- */
 .product-toolbar {
   display: flex;
   flex-direction: column;
@@ -207,7 +199,6 @@
   }
 }
 
-/* --- Enhanced Product Card Styles --- */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
