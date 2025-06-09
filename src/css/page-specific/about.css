@@ -1,12 +1,8 @@
-/* Styles for /pages/about.html - Polished Version */
-
-/* Mengatur lebar maksimum konten utama di halaman ini */
 .page-container {
   max-width: 900px;
   margin: 0 auto;
 }
 
-/* --- 1. Intro Section --- */
 .about-intro {
   text-align: center;
   margin-bottom: 4rem;
@@ -24,17 +20,13 @@
 
 .about-intro__image {
   width: 100%;
-  /* TAMBAHKAN BARIS INI: Batasi lebar maksimal gambar di 700px */
   max-width: 700px;
-
-  /* TAMBAHKAN BARIS INI: Untuk memastikan gambar selalu di tengah */
   margin-left: auto;
   margin-right: auto;
   border-radius: 0.5rem;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
 }
 
-/* --- 2. Brand Story Section --- */
 .brand-story {
   max-width: 750px;
   margin: 0 auto 4rem;
@@ -53,9 +45,7 @@
   color: #374151;
 }
 
-/* --- 3. Team Section --- */
 .team-section {
-  /* Memberi jeda visual dengan background berbeda */
   background-color: #f9fafb;
   padding: 4rem 0;
   margin: 4rem 0;
@@ -118,7 +108,6 @@
   color: #6b7280;
 }
 
-/* --- 4. Testimonial Section --- */
 .testimonial-section {
   display: flex;
   flex-direction: column;
@@ -133,10 +122,8 @@
   padding: 2rem;
 }
 
-/* Menambahkan ikon kutipan besar sebagai hiasan */
 .testimonial-card::before {
   content: '\f10d';
-  /* Font Awesome quote-left icon */
   font-family: 'Font Awesome 5 Free';
   font-weight: 900;
   font-size: 3rem;
@@ -173,47 +160,37 @@
   font-style: normal;
 }
 
-/* --- Aturan Responsif untuk Layar Mobile & Tablet --- */
 @media (max-width: 768px) {
-
-  /* Mengurangi padding utama halaman */
   .page-container {
     padding: 1.5rem;
   }
 
-  /* --- 1. Intro Section --- */
   .about-intro {
     margin-bottom: 3rem;
   }
 
   .about-intro .page-heading {
     font-size: 1.75rem;
-    /* Ukuran judul utama dikecilkan */
   }
 
   .about-intro__subtitle {
     font-size: 1rem;
   }
 
-  /* --- 2. Brand Story Section --- */
   .brand-story {
     margin-bottom: 3rem;
   }
 
   .brand-story__heading {
     font-size: 1.5rem;
-    /* Ukuran judul dikecilkan */
   }
 
   .brand-story p {
     font-size: 1rem;
-    /* Ukuran paragraf disesuaikan */
   }
 
-  /* --- 3. Team Section --- */
   .team-section {
     padding: 3rem 0;
-    /* Padding vertikal dikurangi */
     margin: 3rem 0;
   }
 
@@ -222,11 +199,9 @@
   }
 
   .team-grid {
-    /* Grid tim menjadi 2 kolom di tablet, dan 1 kolom di HP */
     grid-template-columns: repeat(2, 1fr);
   }
 
-  /* --- 4. Testimonial Section --- */
   .testimonial-section {
     padding-bottom: 3rem;
   }
@@ -237,19 +212,15 @@
 
   .testimonial-card::before {
     font-size: 2.5rem;
-    /* Ikon kutipan dikecilkan */
   }
 
   .testimonial-card blockquote {
     font-size: 1.125rem;
-    /* Ukuran teks kutipan dikecilkan */
   }
 }
 
-/* Aturan khusus untuk layar HP yang lebih kecil */
 @media (max-width: 480px) {
   .team-grid {
-    /* Di HP, grid tim menjadi 1 kolom agar tidak sempit */
     grid-template-columns: 1fr;
   }
 }

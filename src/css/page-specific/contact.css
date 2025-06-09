@@ -1,33 +1,23 @@
-/* Styles for /pages/contact.html - Final Polished Version */
-
-/* PERBAIKAN: Memberi ruang napas kiri-kanan pada seluruh halaman */
-/* Ini akan aktif di semua ukuran layar, tapi paling terasa di mobile */
 .page-container {
   padding-left: 1rem;
   padding-right: 1rem;
 }
 
-/* Kontainer utama yang mengatur layout grid */
 .contact-layout {
   display: grid;
   grid-template-columns: 1fr;
-  /* 1 kolom di mobile */
   gap: 1.5rem;
-  /* Jarak antar panel di mobile dikurangi */
   margin: 2rem 0;
 }
 
-/* Base style untuk kedua panel agar konsisten */
 .contact-panel {
   background-color: #f9fafb;
   border: 1px solid #f3f4f6;
   padding: 2rem;
-  /* Padding internal panel */
   border-radius: 0.75rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* PERBAIKAN: Efek hover 'mengangkat' pada panel */
 .contact-panel:hover {
   transform: translateY(-6px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
@@ -59,17 +49,14 @@
   font-size: 1rem;
   font-weight: 500;
   padding: 0.5rem;
-  /* Menambah area klik */
   border-radius: 0.375rem;
   transition: background-color 0.2s, color 0.2s, transform 0.2s;
 }
 
-/* PERBAIKAN: Efek hover pada ikon kontak */
 .detail-item:hover {
   background-color: #e5e7eb;
   color: #1f2937;
   transform: translateX(4px);
-  /* Efek geser ke kanan */
 }
 
 .detail-item i {
@@ -79,7 +66,6 @@
   color: #374151;
 }
 
-/* Styling untuk Form di Panel Kanan */
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -125,7 +111,6 @@
   margin-top: auto;
 }
 
-/* PERBAIKAN: Style khusus untuk tombol agar selalu terlihat */
 .btn--submit {
   display: inline-flex;
   align-items: center;
@@ -133,21 +118,17 @@
   gap: 0.5rem;
   width: 100%;
   background-color: #1f2937;
-  /* Latar gelap yang solid */
   color: #ffffff;
-  /* Teks putih */
   border-color: #1f2937;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
 }
 
-/* PERBAIKAN: Efek hover untuk tombol */
 .btn--submit:hover {
   background-color: #374151;
   border-color: #374151;
 }
 
-/* --- Aturan Responsif untuk Desktop --- */
 @media (min-width: 992px) {
   .contact-layout {
     grid-template-columns: 1fr 1.5fr;
